@@ -1,0 +1,37 @@
+{
+    "name": "jjanvier/sylakim",
+    "type": "symfony-bundle",
+    "description": "Connector between Akeneo PIM and Sylius",
+    "keywords": ["pim", "akeneo", "ecommerce", "e-commerce", "sylius", "connector"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Janvier",
+            "email": "jjanvier@gmail.com"
+        },
+        {
+            "name": "Arnaud Langlade",
+            "email": "arn0d.dev@gmail.com"
+        },
+        {
+            "name": "Romain Monceau",
+            "email": "monceau.romain@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "akeneo/pim-community-dev": "1.2.*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": { "Pim\\Bundle\\SyliusConnectorBundle\\": "" }
+    },
+    "target-dir": "Pim/Bundle/SyliusConnectorBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.3.x-dev"
+        }
+    }
+}
