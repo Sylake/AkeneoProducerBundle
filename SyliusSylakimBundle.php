@@ -2,6 +2,8 @@
 
 namespace Sylius\Bundle\SylakimBundle;
 
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 /**
  * Bundle connecting Sylius and Akeneo PIM
  *
@@ -9,6 +11,6 @@ namespace Sylius\Bundle\SylakimBundle;
  * @copyright <COPYRIGHT>
  * @license   http://opensource.org/licenses/MIT The MIT License
  */
-class SylakimBundle extends Bundle
+class SyliusSylakimBundle extends Bundle
 {
 }
