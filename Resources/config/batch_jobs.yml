@@ -1,0 +1,46 @@
+connector:
+    name: Sylius Connector
+    jobs:
+        sylius_attribute_export:
+            title: sylius_sylakim.jobs.attribute.export.title
+            type: export
+            steps:
+                export:
+                    title: sylius_sylakim_connector.jobs.attribute.export.title
+                    services:
+                        reader:    pim_base_connector.reader.dummy
+                        processor: pim_base_connector.processor.dummy
+                        writer:    pim_base_connector.writer.dummy
+
+        sylius_category_export:
+            title: sylius_sylakim.jobs.category.export.title
+            type: export
+            steps:
+                export:
+                    title: sylius_sylakim_connector.jobs.category.export.title
+                    services:
+                        reader:    pim_base_connector.reader.dummy
+                        processor: pim_base_connector.processor.dummy
+                        writer:    pim_base_connector.writer.dummy
+
+        sylius_family_export:
+            title: sylius_sylakim.jobs.family.export.title
+            type: export
+            steps:
+                export:
+                    title: sylius_sylakim_connector.jobs.family.export.title
+                    services:
+                        reader:    pim_base_connector.reader.dummy
+                        processor: pim_base_connector.processor.dummy
+                        writer:    pim_base_connector.writer.dummy
+
+        sylius_product_export:
+            title: sylius_sylakim.jobs.product.export.title
+            type: export
+            steps:
+                export:
+                    title: sylius_sylakim_connector.jobs.product.export.title
+                    services:
+                        reader:    pim_base_connector.reader.dummy
+                        processor: pim_base_connector.processor.dummy
+                        writer:    pim_base_connector.writer.dummy
