@@ -2,6 +2,8 @@
 
 namespace Sylius\Bundle\SylakimBundle;
 
+use Pim\Bundle\TransformBundle\DependencyInjection\Compiler\SerializerPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -13,4 +15,12 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class SyliusSylakimBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container)
+    {
+        $container
+            ->addCompilerPass(new SerializerPass('sylius_sylakim.serializer'));
+    }
 }

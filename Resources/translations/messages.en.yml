@@ -1,0 +1,22 @@
+sylius_sylakim:
+    export:
+        wsdl_url:
+            label: Wsdl url
+            help: Provide here your wsdl url
+        username:
+            label: Username
+            help: Your website username
+        api_key:
+            label: API Key
+            help: Your website api key
+        http_login:
+            label: Http login
+            help: If you have an http authentication on your server, provide here your http login
+        http_password:
+            label: Http password
+            help: If you have an http authentication on your server, provide here your http password
+        format:
+            label: Format
+            help: Depending of your website web service format
+    jobs:
+        category.export.title: Sylius category export

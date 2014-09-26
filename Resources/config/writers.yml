@@ -1,0 +1,6 @@
+parameters:
+    sylius_sylakim.writer.sylius.class: Sylius\Bundle\SylakimBundle\Writer\SyliusWriter
+
+services:
+    sylius_sylakim.writer.sylius:
+        class: %sylius_sylakim.writer.sylius.class%

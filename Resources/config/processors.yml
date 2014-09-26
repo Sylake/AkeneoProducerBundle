@@ -1,0 +1,8 @@
+parameters:
+    sylius_sylakim.processor.entity_to_array.class: Sylius\Bundle\SylakimBundle\Processor\EntityToArrayProcessor
+
+services:
+    sylius_sylakim.processor.entity_to_array:
+        class: %sylius_sylakim.processor.entity_to_array.class%
+        arguments:
+            - '@sylius_sylakim.serializer'

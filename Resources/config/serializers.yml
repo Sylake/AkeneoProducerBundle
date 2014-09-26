@@ -1,0 +1,9 @@
+services:
+    sylius_sylakim.serializer:
+        class: %pim_serializer.class%
+
+    sylius_sylakim.serializer.encoder.json:
+        public: false
+        class: %pim_serializer.encoder.json.class%
+        tags:
+            - { name: sylius_sylakim.serializer.encoder, priority: 90 }

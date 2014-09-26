@@ -1,0 +1,8 @@
+parameters:
+    sylius_sylakim.normalizer.category.class: Sylius\Bundle\SylakimBundle\Normalizer\CategoryNormalizer
+
+services:
+    sylius_sylakim.normalizer.category:
+        class: %sylius_sylakim.normalizer.category.class%
+        tags:
+            - { name: sylius_sylakim.serializer.normalizer }
