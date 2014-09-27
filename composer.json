@@ -22,6 +22,9 @@
     "require": {
         "akeneo/pim-community-dev": "1.2.*"
     },
+    "require-dev": {
+        "phpspec/phpspec": "2.1.0-RC1"
+    },
     "config": {
         "bin-dir": "bin"
     },
