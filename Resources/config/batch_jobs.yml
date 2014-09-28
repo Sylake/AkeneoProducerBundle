@@ -8,9 +8,9 @@ connector:
                 export:
                     title: sylius_sylakim_connector.jobs.attribute.export.title
                     services:
-                        reader:    pim_base_connector.reader.dummy
-                        processor: pim_base_connector.processor.dummy
-                        writer:    pim_base_connector.writer.dummy
+                        reader:    pim_base_connector.reader.orm.attribute
+                        processor: sylius_sylakim.processor.entity_to_array
+                        writer:    sylius_sylakim.writer.sylius
 
         sylius_category_export:
             title: sylius_sylakim.jobs.category.export.title

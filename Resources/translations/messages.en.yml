@@ -19,4 +19,5 @@ sylius_sylakim:
             label: Format
             help: Depending of your website web service format
     jobs:
+        attribute.export.title: Sylius attribute export
         category.export.title: Sylius category export
