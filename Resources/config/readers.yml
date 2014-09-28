@@ -1,0 +1,6 @@
+services:
+    sylius_sylakim.reader.family:
+        class: %pim_base_connector.reader.orm.entity.class%
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - %pim_catalog.entity.family.class%

@@ -21,3 +21,4 @@ sylius_sylakim:
     jobs:
         attribute.export.title: Sylius attribute export
         category.export.title: Sylius category export
+        family.export.title: Sylius family export
