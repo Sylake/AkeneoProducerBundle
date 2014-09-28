@@ -6,15 +6,24 @@ use Pim\Bundle\CatalogBundle\Model\AbstractAttribute;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ * Normalizer that defines what part of attribute should be exported to Sylius
  *
- * @author    Romain Monceau <romain@akeneo.com>
- * @copyright 2014 Akeneo SAS (http://www.akeneo.com)
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author    <AUTHOR>
+ * @copyright <COPYRIGHT>
+ * @license   http://opensource.org/licenses/MIT The MIT License
  */
 class AttributeNormalizer implements NormalizerInterface
 {
     /** @var string[] */
-    protected $supportedFormats = array('json', 'xml');
+    protected $supportedFormats;
+
+    /**
+     * @param string[] $supportedFormats
+     */
+    public function __construct(array $supportedFormats)
+    {
+        $this->supportedFormats = $supportedFormats;
+    }
 
     /**
      * {@inheritdoc}

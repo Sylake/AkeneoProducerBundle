@@ -5,12 +5,6 @@ namespace spec\Sylius\Bundle\SylakimBundle\Processor;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-/**
- *
- * @author    <AUTHOR>
- * @copyright <COPYRIGHT>
- * @license   http://opensource.org/licenses/MIT The MIT License
- */
 class EntityToArrayProcessorSpec extends ObjectBehavior
 {
     function let(NormalizerInterface $normalizer)
@@ -22,6 +16,12 @@ class EntityToArrayProcessorSpec extends ObjectBehavior
     {
         $normalizer->normalize('bar', 'foo')->willReturn('qux');
 
+        $this->setFormat('foo');
         $this->process('bar')->shouldReturn('qux');
+    }
+
+    function it_needs_some_configuration()
+    {
+        $this->getConfigurationFields()->shouldHaveKey('format');
     }
 }

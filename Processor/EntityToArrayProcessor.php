@@ -9,6 +9,7 @@ use Akeneo\Bundle\BatchBundle\Step\StepExecutionAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ * Processor that calls normalizer to prepare data for the writer
  *
  * @author    <AUTHOR>
  * @copyright <COPYRIGHT>
@@ -28,7 +29,7 @@ class EntityToArrayProcessor extends AbstractConfigurableStepElement implements
     protected $format;
 
     /**
-     * @param SerializerInterface $serializer
+     * @param NormalizerInterface $normalizer
      */
     public function __construct(NormalizerInterface $normalizer)
     {
@@ -40,7 +41,7 @@ class EntityToArrayProcessor extends AbstractConfigurableStepElement implements
      */
     public function process($item)
     {
-        return $this->normalizer->normalize($item, 'json');
+        return $this->normalizer->normalize($item, $this->format);
     }
 
     /**

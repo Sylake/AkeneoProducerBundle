@@ -8,6 +8,7 @@ use Akeneo\Bundle\BatchBundle\Item\ItemWriterInterface;
 use Akeneo\Bundle\BatchBundle\Step\StepExecutionAwareInterface;
 
 /**
+ * Abstract web service class that defines all configuration requirements for a web service writer
  *
  * @author    <AUTHOR>
  * @copyright <COPYRIGHT>
@@ -21,7 +22,7 @@ abstract class AbstractWebServiceWriter extends AbstractConfigurableStepElement 
     protected $stepExecution;
 
     /** @var string */
-    protected $wsdlUrl;
+    protected $host;
 
     /** @var string */
     protected $username;
@@ -103,19 +104,19 @@ abstract class AbstractWebServiceWriter extends AbstractConfigurableStepElement 
     }
 
     /**
-     * @param string $wsdlUrl
+     * @param string $host
      */
-    public function setWsdlUrl($wsdlUrl)
+    public function setHost($host)
     {
-        $this->wsdlUrl = $wsdlUrl;
+        $this->host = $host;
     }
 
     /**
      * @return string
      */
-    public function getWsdlUrl()
+    public function getHost()
     {
-        return $this->wsdlUrl;
+        return $this->host;
     }
 
     /**
@@ -148,10 +149,10 @@ abstract class AbstractWebServiceWriter extends AbstractConfigurableStepElement 
     public function getConfigurationFields()
     {
         return [
-            'wsdlUrl' => [
+            'host' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.wsdl_url.label',
-                    'help'  => 'sylius_sylakim.export.wsdl_url.help'
+                    'label' => 'sylius_sylakim.export.host.label',
+                    'help'  => 'sylius_sylakim.export.host.help'
                 ]
             ],
             'username' => [

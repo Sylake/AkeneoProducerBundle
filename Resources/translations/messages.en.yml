@@ -1,8 +1,8 @@
 sylius_sylakim:
     export:
-        wsdl_url:
-            label: Wsdl url
-            help: Provide here your wsdl url
+        host:
+            label: Host
+            help: Provide here your host
         username:
             label: Username
             help: Your website username
@@ -19,6 +19,12 @@ sylius_sylakim:
             label: Format
             help: Depending of your website web service format
     jobs:
-        attribute.export.title: Sylius attribute export
-        category.export.title: Sylius category export
-        family.export.title: Sylius family export
+        attribute:
+            export:
+                title: Sylius attribute export
+        category:
+            export:
+                title: Sylius category export
+        family:
+            export:
+                title: Sylius family export

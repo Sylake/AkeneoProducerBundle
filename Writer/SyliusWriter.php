@@ -3,10 +3,11 @@
 namespace Sylius\Bundle\SylakimBundle\Writer;
 
 /**
+ * Sylius writer class that calls Sylius REST API
  *
  * @author    <AUTHOR>
  * @copyright <COPYRIGHT>
- * @license   <LICENSE>
+ * @license   http://opensource.org/licenses/MIT The MIT License
  */
 class SyliusWriter extends AbstractWebServiceWriter
 {

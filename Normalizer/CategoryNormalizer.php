@@ -6,6 +6,7 @@ use Pim\Bundle\CatalogBundle\Model\CategoryInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ * Normalizer that defines what part of category should be exported to Sylius
  *
  * @author    <AUTHOR>
  * @copyright <COPYRIGHT>
@@ -14,7 +15,15 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 class CategoryNormalizer implements NormalizerInterface
 {
     /** @var string[] */
-    protected $supportedFormats = array('json', 'xml');
+    protected $supportedFormats;
+
+    /**
+     * @param string[] $supportedFormats
+     */
+    public function __construct(array $supportedFormats)
+    {
+        $this->supportedFormats = $supportedFormats;
+    }
 
     /**
      * {@inheritdoc}

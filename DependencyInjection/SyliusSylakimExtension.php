@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
+ * This is the class that loads and manage Sylius connector bundle configuration
  *
  * @author    <AUTHOR>
  * @copyright <COPYRIGHT>
