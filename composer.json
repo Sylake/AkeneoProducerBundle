@@ -18,9 +18,19 @@
             "email": "monceau.romain@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/akeneo/pim-community-dev.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/akeneo/platform.git"
+        }
+    ],
     "minimum-stability": "dev",
     "require": {
-        "akeneo/pim-community-dev": "1.2.*"
+        "akeneo/pim-community-dev": "*"
     },
     "require-dev": {
         "phpspec/phpspec": "2.1.0-RC1"
@@ -31,10 +41,5 @@
     "autoload": {
         "psr-0": { "Sylius\\Bundle\\SylakimBundle\\": "" }
     },
-    "target-dir": "Sylius/Bundle/SylakimBundle",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.3.x-dev"
-        }
-    }
+    "target-dir": "Sylius/Bundle/SylakimBundle"
 }
