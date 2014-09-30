@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Sylakim package.
+ *
+ * (c) Sylakim
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace spec\Sylius\Bundle\SylakimBundle\Normalizer;
 
 use Doctrine\Common\Collections\Collection;

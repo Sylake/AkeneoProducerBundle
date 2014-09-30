@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Sylakim package.
+ *
+ * (c) Sylakim
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Sylius\Bundle\SylakimBundle\Processor;
 
 use Akeneo\Bundle\BatchBundle\Entity\StepExecution;
@@ -11,9 +20,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * Processor that calls normalizer to prepare data for the writer
  *
- * @author    <AUTHOR>
- * @copyright <COPYRIGHT>
- * @license   http://opensource.org/licenses/MIT The MIT License
+ * @author Romain Monceau <romain@akeneo.com>
  */
 class EntityToArrayProcessor extends AbstractConfigurableStepElement implements
     ItemProcessorInterface,

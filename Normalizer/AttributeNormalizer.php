@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Sylakim package.
+ *
+ * (c) Sylakim
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Sylius\Bundle\SylakimBundle\Normalizer;
 
 use Pim\Bundle\CatalogBundle\Model\AbstractAttribute;
@@ -8,9 +17,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * Normalizer that defines what part of attribute should be exported to Sylius
  *
- * @author    <AUTHOR>
- * @copyright <COPYRIGHT>
- * @license   http://opensource.org/licenses/MIT The MIT License
+ * @author Romain Monceau <romain@akeneo.com>
  */
 class AttributeNormalizer implements NormalizerInterface
 {

@@ -1,13 +1,20 @@
 <?php
 
+/*
+ * This file is part of the Sylakim package.
+ *
+ * (c) Sylakim
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Sylius\Bundle\SylakimBundle\Writer;
 
 /**
  * Sylius writer class that calls Sylius REST API
  *
- * @author    <AUTHOR>
- * @copyright <COPYRIGHT>
- * @license   http://opensource.org/licenses/MIT The MIT License
+ * @author Romain Monceau <romain@akeneo.com>
  */
 class SyliusWriter extends AbstractWriter
 {
