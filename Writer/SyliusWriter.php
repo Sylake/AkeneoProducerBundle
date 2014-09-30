@@ -9,7 +9,7 @@ namespace Sylius\Bundle\SylakimBundle\Writer;
  * @copyright <COPYRIGHT>
  * @license   http://opensource.org/licenses/MIT The MIT License
  */
-class SyliusWriter extends AbstractWebServiceWriter
+class SyliusWriter extends AbstractWriter
 {
     /**
      * Process the supplied data element. Will not be called with any null items

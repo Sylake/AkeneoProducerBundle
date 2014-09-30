@@ -30,7 +30,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "akeneo/pim-community-dev": "*"
+        "akeneo/pim-community-dev": "*",
+        "guzzlehttp/guzzle":        "4.*"
     },
     "require-dev": {
         "phpspec/phpspec": "2.1.0-RC1"
