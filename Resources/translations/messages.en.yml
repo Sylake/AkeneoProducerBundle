@@ -1,0 +1,39 @@
+##
+# This file is part of the Sylakim package.
+#
+# (c) Sylakim
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+##
+
+sylius_sylakim:
+    export:
+        host:
+            label: Host
+            help: Provide here your host
+        username:
+            label: Username
+            help: Your website username
+        api_key:
+            label: API Key
+            help: Your website api key
+        http_login:
+            label: Http login
+            help: If you have an http authentication on your server, provide here your http login
+        http_password:
+            label: Http password
+            help: If you have an http authentication on your server, provide here your http password
+        format:
+            label: Format
+            help: Depending of your website web service format
+    jobs:
+        attribute:
+            export:
+                title: Sylius attribute export
+        category:
+            export:
+                title: Sylius category export
+        family:
+            export:
+                title: Sylius family export
