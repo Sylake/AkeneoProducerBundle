@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * Processor that calls normalizer to prepare data for the writer
  *
- * @author Romain Monceau <romain@akeneo.com>
+ * @author Romain Monceau <monceau.romain@gmail.com>
  */
 class EntityToArrayProcessor extends AbstractConfigurableStepElement implements
     ItemProcessorInterface,

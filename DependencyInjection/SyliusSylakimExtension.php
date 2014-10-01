@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * This is the class that loads and manage Sylius connector bundle configuration
  *
- * @author Romain Monceau <romain@akeneo.com>
+ * @author Romain Monceau <monceau.romain@gmail.com>
  */
 class SyliusSylakimExtension extends Extension
 {

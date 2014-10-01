@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * Bundle connecting Sylius and Akeneo PIM
  *
- * @author Romain Monceau <romain@akeneo.com>
+ * @author Romain Monceau <monceau.romain@gmail.com>
  */
 class SyliusSylakimBundle extends Bundle
 {

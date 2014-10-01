@@ -14,7 +14,7 @@ namespace Sylius\Bundle\SylakimBundle\Writer;
 /**
  * Sylius writer class that calls Sylius REST API
  *
- * @author Romain Monceau <romain@akeneo.com>
+ * @author Romain Monceau <monceau.romain@gmail.com>
  */
 class SyliusWriter extends AbstractWriter
 {

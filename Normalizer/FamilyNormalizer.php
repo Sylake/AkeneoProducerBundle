@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 /**
  * Normalizer that defines what part of family should be exported to Sylius
  *
- * @author Romain Monceau <romain@akeneo.com>
+ * @author Romain Monceau <monceau.romain@gmail.com>
  */
 class FamilyNormalizer implements NormalizerInterface
 {

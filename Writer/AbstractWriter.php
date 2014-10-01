@@ -20,7 +20,7 @@ use Sylius\Bundle\SylakimBundle\WebService\ClientInterface;
 /**
  * Abstract web service class that defines all configuration requirements for a web service writer
  *
- * @author Romain Monceau <romain@akeneo.com>
+ * @author Romain Monceau <monceau.romain@gmail.com>
  */
 abstract class AbstractWriter extends AbstractConfigurableStepElement implements
     ItemWriterInterface,
