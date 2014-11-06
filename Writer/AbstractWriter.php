@@ -3,13 +3,13 @@
 /*
  * This file is part of the Sylakim package.
  *
- * (c) Sylakim
+ * (c) Sylake
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SylakimBundle\Writer;
+namespace Sylake\Bundle\SylakimBundle\Writer;
 
 use Akeneo\Bundle\BatchBundle\Entity\StepExecution;
 use Akeneo\Bundle\BatchBundle\Item\AbstractConfigurableStepElement;
@@ -67,38 +67,38 @@ abstract class AbstractWriter extends AbstractConfigurableStepElement implements
         return [
             'host' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.host.label',
-                    'help'  => 'sylius_sylakim.export.host.help'
+                    'label' => 'sylake_sylakim.export.host.label',
+                    'help'  => 'sylake_sylakim.export.host.help'
                 ]
             ],
             'username' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.username.label',
-                    'help'  => 'sylius_sylakim.export.username.help'
+                    'label' => 'sylake_sylakim.export.username.label',
+                    'help'  => 'sylake_sylakim.export.username.help'
                 ]
             ],
             'apiKey' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.api_key.label',
-                    'help'  => 'sylius_sylakim.export.api_key.help'
+                    'label' => 'sylake_sylakim.export.api_key.label',
+                    'help'  => 'sylake_sylakim.export.api_key.help'
                 ]
             ],
             'httpLogin' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.http_login.label',
-                    'help'  => 'sylius_sylakim.export.http_login.help'
+                    'label' => 'sylake_sylakim.export.http_login.label',
+                    'help'  => 'sylake_sylakim.export.http_login.help'
                 ]
             ],
             'httpPassword' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.http_password.label',
-                    'help'  => 'sylius_sylakim.export.http_password.help'
+                    'label' => 'sylake_sylakim.export.http_password.label',
+                    'help'  => 'sylake_sylakim.export.http_password.help'
                 ]
             ],
             'format' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.format.label',
-                    'help'  => 'sylius_sylakim.export.format.help'
+                    'label' => 'sylake_sylakim.export.format.label',
+                    'help'  => 'sylake_sylakim.export.format.help'
                 ]
             ]
         ];

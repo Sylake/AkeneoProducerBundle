@@ -1,18 +1,18 @@
 ##
 # This file is part of the Sylakim package.
 #
-# (c) Sylakim
+# (c) Sylake
 #
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 ##
 
 services:
-    sylius_sylakim.serializer:
+    sylake_sylakim.serializer:
         class: %pim_serializer.class%
 
-    sylius_sylakim.serializer.encoder.json:
+    sylake_sylakim.serializer.encoder.json:
         public: false
         class: %pim_serializer.encoder.json.class%
         tags:
-            - { name: sylius_sylakim.serializer.encoder, priority: 90 }
+            - { name: sylake_sylakim.serializer.encoder, priority: 90 }

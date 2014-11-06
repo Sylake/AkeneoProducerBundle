@@ -3,13 +3,13 @@
 /*
  * This file is part of the Sylakim package.
  *
- * (c) Sylakim
+ * (c) Sylake
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SylakimBundle\Normalizer;
+namespace Sylake\Bundle\SylakimBundle\Normalizer;
 
 use Pim\Bundle\CatalogBundle\Model\AbstractAttribute;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;

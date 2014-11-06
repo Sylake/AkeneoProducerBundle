@@ -1,35 +1,35 @@
 ##
 # This file is part of the Sylakim package.
 #
-# (c) Sylakim
+# (c) Sylake
 #
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 ##
 
 parameters:
-    sylius_sylakim.normalizer.attribute.class: Sylius\Bundle\SylakimBundle\Normalizer\AttributeNormalizer
-    sylius_sylakim.normalizer.category.class: Sylius\Bundle\SylakimBundle\Normalizer\CategoryNormalizer
-    sylius_sylakim.normalizer.family.class: Sylius\Bundle\SylakimBundle\Normalizer\FamilyNormalizer
+    sylake_sylakim.normalizer.attribute.class: Sylake\Bundle\SylakimBundle\Normalizer\AttributeNormalizer
+    sylake_sylakim.normalizer.category.class: Sylake\Bundle\SylakimBundle\Normalizer\CategoryNormalizer
+    sylake_sylakim.normalizer.family.class: Sylake\Bundle\SylakimBundle\Normalizer\FamilyNormalizer
 
 services:
-    sylius_sylakim.normalizer.attribute:
-        class: %sylius_sylakim.normalizer.attribute.class%
+    sylake_sylakim.normalizer.attribute:
+        class: %sylake_sylakim.normalizer.attribute.class%
         arguments:
             - [ json, xml ]
         tags:
-            - { name: sylius_sylakim.serializer.normalizer }
+            - { name: sylake_sylakim.serializer.normalizer }
 
-    sylius_sylakim.normalizer.category:
-        class: %sylius_sylakim.normalizer.category.class%
+    sylake_sylakim.normalizer.category:
+        class: %sylake_sylakim.normalizer.category.class%
         arguments:
             - [ json, xml ]
         tags:
-            - { name: sylius_sylakim.serializer.normalizer }
+            - { name: sylake_sylakim.serializer.normalizer }
 
-    sylius_sylakim.normalizer.family:
-        class: %sylius_sylakim.normalizer.family.class%
+    sylake_sylakim.normalizer.family:
+        class: %sylake_sylakim.normalizer.family.class%
         arguments:
             - [ json, xml ]
         tags:
-            - { name: sylius_sylakim.serializer.normalizer }
+            - { name: sylake_sylakim.serializer.normalizer }
