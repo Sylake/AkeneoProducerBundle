@@ -24,6 +24,7 @@ interface ClientInterface
      * @return ClientInterface
      */
     public function setApiKey($apiKey);
+
     /**
      * @return string
      */

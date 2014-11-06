@@ -34,7 +34,7 @@ class Client implements ClientInterface
     protected $httpPassword;
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function setApiKey($apiKey)
     {
@@ -42,7 +42,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function getApiKey()
     {
@@ -50,7 +50,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function setHttpLogin($httpLogin)
     {
@@ -58,7 +58,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function getHttpLogin()
     {
@@ -66,7 +66,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function setHttpPassword($httpPassword)
     {
@@ -74,7 +74,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function getHttpPassword()
     {
@@ -82,7 +82,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function setUsername($username)
     {
@@ -90,7 +90,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function getUsername()
     {
@@ -106,7 +106,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * {@inheritdoc]
+     * {@inheritdoc}
      */
     public function setHost($host)
     {

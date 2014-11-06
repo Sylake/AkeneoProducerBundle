@@ -55,7 +55,7 @@ class FamilyNormalizer implements NormalizerInterface
     /**
      * Normalize family attributes
      *
-     * @param array $attributes
+     * @param Collection $attributes
      *
      * @return array
      */
