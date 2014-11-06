@@ -15,7 +15,7 @@ use Akeneo\Bundle\BatchBundle\Entity\StepExecution;
 use Akeneo\Bundle\BatchBundle\Item\AbstractConfigurableStepElement;
 use Akeneo\Bundle\BatchBundle\Item\ItemWriterInterface;
 use Akeneo\Bundle\BatchBundle\Step\StepExecutionAwareInterface;
-use Sylius\Bundle\SylakimBundle\WebService\ClientInterface;
+use Sylake\Bundle\SylakimBundle\WebService\ClientInterface;
 
 /**
  * Abstract web service class that defines all configuration requirements for a web service writer

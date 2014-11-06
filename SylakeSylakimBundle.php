@@ -11,7 +11,7 @@
 
 namespace Sylake\Bundle\SylakimBundle;
 
-use Pim\Bundle\TransformBundle\DependencyInjection\Compiler\SerializerPass;
+use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\SerializerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
