@@ -1,5 +1,5 @@
 {
-    "name": "jjanvier/sylakim",
+    "name": "sylake/sylakim",
     "type": "symfony-bundle",
     "description": "Connector between Akeneo PIM and Sylius",
     "keywords": ["pim", "akeneo", "ecommerce", "e-commerce", "sylius", "connector"],
@@ -38,6 +38,11 @@
     },
     "config": {
         "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
     },
     "autoload": {
         "psr-0": { "Sylius\\Bundle\\SylakimBundle\\": "" }
