@@ -3,13 +3,13 @@
 /*
  * This file is part of the Sylakim package.
  *
- * (c) Sylakim
+ * (c) Sylake
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SylakimBundle\DependencyInjection;
+namespace Sylake\Bundle\SylakimBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -21,7 +21,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * @author Romain Monceau <monceau.romain@gmail.com>
  */
-class SyliusSylakimExtension extends Extension
+class SylakeSylakimExtension extends Extension
 {
     /**
      * {@inheritdoc}

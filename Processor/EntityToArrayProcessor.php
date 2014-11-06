@@ -3,13 +3,13 @@
 /*
  * This file is part of the Sylakim package.
  *
- * (c) Sylakim
+ * (c) Sylake
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SylakimBundle\Processor;
+namespace Sylake\Bundle\SylakimBundle\Processor;
 
 use Akeneo\Bundle\BatchBundle\Entity\StepExecution;
 use Akeneo\Bundle\BatchBundle\Item\AbstractConfigurableStepElement;
@@ -75,8 +75,8 @@ class EntityToArrayProcessor extends AbstractConfigurableStepElement implements
         return [
             'format' => [
                 'options' => [
-                    'label' => 'sylius_sylakim.export.format.label',
-                    'help'  => 'sylius_sylakim.export.format.help'
+                    'label' => 'sylake_sylakim.export.format.label',
+                    'help'  => 'sylake_sylakim.export.format.help'
                 ]
             ]
         ];

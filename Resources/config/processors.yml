@@ -1,17 +1,17 @@
 ##
 # This file is part of the Sylakim package.
 #
-# (c) Sylakim
+# (c) Sylake
 #
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 ##
 
 parameters:
-    sylius_sylakim.processor.entity_to_array.class: Sylius\Bundle\SylakimBundle\Processor\EntityToArrayProcessor
+    sylake_sylakim.processor.entity_to_array.class: Sylake\Bundle\SylakimBundle\Processor\EntityToArrayProcessor
 
 services:
-    sylius_sylakim.processor.entity_to_array:
-        class: %sylius_sylakim.processor.entity_to_array.class%
+    sylake_sylakim.processor.entity_to_array:
+        class: %sylake_sylakim.processor.entity_to_array.class%
         arguments:
-            - '@sylius_sylakim.serializer'
+            - '@sylake_sylakim.serializer'

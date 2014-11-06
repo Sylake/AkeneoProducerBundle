@@ -1,15 +1,15 @@
 ##
 # This file is part of the Sylakim package.
 #
-# (c) Sylakim
+# (c) Sylake
 #
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 ##
 
 parameters:
-    sylius_sylakim.writer.sylius.class: Sylius\Bundle\SylakimBundle\Writer\SyliusWriter
+    sylake_sylakim.writer.sylius.class: Sylake\Bundle\SylakimBundle\Writer\SyliusWriter
 
 services:
-    sylius_sylakim.writer.sylius:
-        class: %sylius_sylakim.writer.sylius.class%
+    sylake_sylakim.writer.sylius:
+        class: %sylake_sylakim.writer.sylius.class%

@@ -3,13 +3,13 @@
 /*
  * This file is part of the Sylakim package.
  *
- * (c) Sylakim
+ * (c) Sylake
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\SylakimBundle;
+namespace Sylake\Bundle\SylakimBundle;
 
 use Pim\Bundle\TransformBundle\DependencyInjection\Compiler\SerializerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author Romain Monceau <monceau.romain@gmail.com>
  */
-class SyliusSylakimBundle extends Bundle
+class SylakeSylakimBundle extends Bundle
 {
     /**
      * {@inheritdoc}
@@ -28,6 +28,6 @@ class SyliusSylakimBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         $container
-            ->addCompilerPass(new SerializerPass('sylius_sylakim.serializer'));
+            ->addCompilerPass(new SerializerPass('sylake_sylakim.serializer'));
     }
 }

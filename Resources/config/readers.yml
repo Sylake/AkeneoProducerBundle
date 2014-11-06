@@ -1,14 +1,14 @@
 ##
 # This file is part of the Sylakim package.
 #
-# (c) Sylakim
+# (c) Sylake
 #
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 ##
 
 services:
-    sylius_sylakim.reader.family:
+    sylake_sylakim.reader.family:
         class: %pim_base_connector.reader.orm.entity.class%
         arguments:
             - '@doctrine.orm.default_entity_manager'
