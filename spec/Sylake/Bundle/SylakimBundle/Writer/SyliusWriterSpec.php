@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Sylius\Bundle\SylakimBundle\Writer;
+namespace spec\Sylake\Bundle\SylakimBundle\Writer;
 
 use PhpSpec\ObjectBehavior;
 
