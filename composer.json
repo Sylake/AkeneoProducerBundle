@@ -1,5 +1,5 @@
 {
-    "name": "jjanvier/sylakim",
+    "name": "sylake/sylakim",
     "type": "symfony-bundle",
     "description": "Connector between Akeneo PIM and Sylius",
     "keywords": ["pim", "akeneo", "ecommerce", "e-commerce", "sylius", "connector"],
