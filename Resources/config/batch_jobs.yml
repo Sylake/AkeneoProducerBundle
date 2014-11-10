@@ -15,7 +15,7 @@ connector:
             type: export
             steps:
                 export:
-                    title: sylake_sylakim_connector.jobs.attribute.export.title
+                    title: sylake_sylakim.jobs.attribute.export.title
                     services:
                         reader:    pim_base_connector.reader.orm.attribute
                         processor: sylake_sylakim.processor.entity_to_array
@@ -26,7 +26,7 @@ connector:
             type: export
             steps:
                 export:
-                    title: sylake_sylakim_connector.jobs.category.export.title
+                    title: sylake_sylakim.jobs.category.export.title
                     services:
                         reader:    pim_base_connector.reader.orm.category
                         processor: sylake_sylakim.processor.entity_to_array
@@ -37,7 +37,7 @@ connector:
             type: export
             steps:
                 export:
-                    title: sylake_sylakim_connector.jobs.family.export.title
+                    title: sylake_sylakim.jobs.family.export.title
                     services:
                         reader:    sylake_sylakim.reader.family
                         processor: sylake_sylakim.processor.entity_to_array
@@ -48,7 +48,7 @@ connector:
             type: export
             steps:
                 export:
-                    title: sylake_sylakim_connector.jobs.product.export.title
+                    title: sylake_sylakim.jobs.product.export.title
                     services:
                         reader:    pim_base_connector.reader.dummy
                         processor: pim_base_connector.processor.dummy

@@ -30,10 +30,13 @@ sylake_sylakim:
     jobs:
         attribute:
             export:
-                title: Sylius attribute export
+                title: Attribute export to Sylius
         category:
             export:
-                title: Sylius category export
+                title: Category export to Sylius
         family:
             export:
-                title: Sylius family export
+                title: Family export to Sylius
+        product:
+            export:
+                title: Product export to Sylius
