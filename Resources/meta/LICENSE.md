@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2014 Julien Janvier <j.janvier@gmail.com>, Arnaud Langlade <arn0d.dev@gmail.com> et Romain Monceau <monceau.romain@gmail.com>
+Copyright (c) 2014 Julien Janvier <j.janvier@gmail.com>, Arnaud Langlade <arn0d.dev@gmail.com> and Romain Monceau <monceau.romain@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
