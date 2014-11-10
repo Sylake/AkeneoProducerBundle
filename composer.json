@@ -40,7 +40,7 @@
         "bin-dir": "bin"
     },
     "autoload": {
-        "psr-0": { "Sylius\\Bundle\\SylakimBundle\\": "" }
+        "psr-0": { "Sylake\\Bundle\\SylakimBundle\\": "" }
     },
-    "target-dir": "Sylius/Bundle/SylakimBundle"
+    "target-dir": "Sylake/Bundle/SylakimBundle"
 }
