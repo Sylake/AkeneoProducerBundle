@@ -45,7 +45,6 @@
         }
     },
     "autoload": {
-        "psr-0": { "Sylake\\Bundle\\SylakimBundle\\": "" }
-    },
-    "target-dir": "Sylake/Bundle/SylakimBundle"
+        "psr-4": { "Sylake\\Bundle\\SylakimBundle\\": "" }
+    }
 }
