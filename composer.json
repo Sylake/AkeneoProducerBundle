@@ -45,6 +45,6 @@
         }
     },
     "autoload": {
-        "psr-4": { "Sylake\\Bundle\\SylakimBundle\\": "" }
+        "psr-4": { "Sylake\\Bundle\\SylakimBundle\\": "src" }
     }
 }
