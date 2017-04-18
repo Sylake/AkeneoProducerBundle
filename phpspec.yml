@@ -1,5 +1,0 @@
-suites:
-    main:
-        namespace: Sylake\Bundle\SylakimBundle
-        psr4_prefix: Sylake\Bundle\SylakimBundle
-        src_path: .
