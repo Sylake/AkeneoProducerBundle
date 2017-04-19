@@ -20,5 +20,7 @@ final class SylakeSylakimExtension extends Extension
         $container->setParameter('sylake_sylakim.api_url', $config['api_url']);
         $container->setParameter('sylake_sylakim.api_public_id', $config['api_public_id']);
         $container->setParameter('sylake_sylakim.api_secret', $config['api_secret']);
+
+        $loader->load('services.xml');
     }
 }

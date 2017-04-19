@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="sylake_sylakim.job" class="%pim_connector.job.simple_job.class%">
+            <argument>sylake_sylakim</argument>
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="akeneo_batch.job_repository" />
+            <argument type="collection">
+                <argument type="service" id="sylake_sylakim.step.association_type" />
+            </argument>
+            <tag name="akeneo_batch.job" connector="Sylakim" type="%pim_connector.job.export_type%" />
+        </service>
+
+        <service id="sylake_sylakim.step.association_type" class="%pim_connector.step.item_step.class%">
+            <argument>association_type</argument>
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="akeneo_batch.job_repository" />
+            <argument type="service" id="pim_connector.reader.dummy_item" />
+            <argument type="service" id="pim_connector.processor.dummy_item" />
+            <argument type="service" id="pim_connector.writer.dummy_item" />
+        </service>
+    </services>
+</container>
