@@ -1,0 +1,29 @@
+{
+    "name": "sylake/sylakim",
+    "description": "",
+    "type": "akeneo-connector",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kamil Kokot",
+            "email": "kamil@kokot.me",
+            "homepage": "http://kamil.kokot.me"
+        }
+    ],
+    "require": {
+        "akeneo/pim-community-dev": "^1.7",
+        "symfony/http-kernel": "^2.7"
+    },
+    "autoload": {
+        "psr-4": { "Sylake\\Sylakim\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\Sylake\\Sylakim\\": "tests/" }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/akeneo/pim-community-dev.git"
+        }
+    ]
+}
