@@ -23,3 +23,6 @@ install:
 
 script:
     - composer validate --strict
+
+    - vendor/bin/phpunit
+    - vendor/bin/phpspec run
