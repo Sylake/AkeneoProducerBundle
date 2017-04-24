@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Sylake\Sylakim
+        psr4_prefix: Sylake\Sylakim
