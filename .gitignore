@@ -1,4 +1,7 @@
-vendor/
-bin/
+/vendor
 
-composer.lock
+/composer.lock
+/humbug.json
+/humbuglog.json
+/humbuglog.txt
+/phpunit.xml

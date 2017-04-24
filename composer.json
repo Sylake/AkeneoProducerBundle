@@ -1,50 +1,34 @@
 {
     "name": "sylake/sylakim",
-    "type": "symfony-bundle",
-    "description": "Connector between Akeneo PIM and Sylius",
-    "keywords": ["pim", "akeneo", "ecommerce", "e-commerce", "sylius", "connector"],
+    "description": "",
+    "type": "akeneo-connector",
     "license": "MIT",
     "authors": [
         {
-            "name": "Julien Janvier",
-            "email": "jjanvier@gmail.com"
-        },
-        {
-            "name": "Arnaud Langlade",
-            "email": "arn0d.dev@gmail.com"
-        },
-        {
-            "name": "Romain Monceau",
-            "email": "monceau.romain@gmail.com"
+            "name": "Kamil Kokot",
+            "email": "kamil@kokot.me",
+            "homepage": "http://kamil.kokot.me"
         }
     ],
+    "require": {
+        "akeneo/pim-community-dev": "^1.7",
+        "symfony/symfony": "^2.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "matthiasnoback/symfony-config-test": "^2.1",
+        "matthiasnoback/symfony-dependency-injection-test": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Sylake\\Sylakim\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\Sylake\\Sylakim\\": "tests/" }
+    },
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/akeneo/pim-community-dev.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/akeneo/platform.git"
         }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "akeneo/pim-community-dev": "~1.2",
-        "guzzlehttp/guzzle":        "~3.8"
-    },
-    "require-dev": {
-        "phpspec/phpspec": "~2.1@dev"
-    },
-    "config": {
-        "bin-dir": "bin"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1-dev"
-        }
-    },
-    "autoload": {
-        "psr-4": { "Sylake\\Bundle\\SylakimBundle\\": "" }
-    }
+    ]
 }

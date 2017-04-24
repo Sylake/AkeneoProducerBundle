@@ -1,12 +1,25 @@
 language: php
 
 php:
-  - 5.4
-  - 5.5
+    - 7.1
+    - 7.0
+    - 5.6
+    - nightly
 
-before_script: composer install --prefer-source --no-interaction
+matrix:
+    allow_failures:
+        - php: nightly
+    fast_finish: true
 
-script: bin/phpspec run -fpretty --verbose
+cache:
+    directories:
+        - vendor
 
-notifications:
-    irc:   "irc.freenode.org#akeneo-dev"
+before_install:
+    - phpenv config-rm xdebug.ini || true
+
+install:
+    - composer update --prefer-dist
+
+script:
+    - composer validate --strict

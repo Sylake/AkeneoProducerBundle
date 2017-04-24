@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="sylake_sylakim.connector.job" class="%pim_connector.job.simple_job.class%">
+            <argument>sylake_sylakim</argument>
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="akeneo_batch.job_repository" />
+            <argument type="collection">
+                <argument type="service" id="sylake_sylakim.connector.step.association_type" />
+            </argument>
+            <tag name="akeneo_batch.job" connector="Sylakim connector" type="%pim_connector.job.export_type%" />
+        </service>
+
+        <service id="sylake_sylakim.connector.step.association_type" class="Sylake\Sylakim\Connector\Step\AssociationTypeStep">
+            <argument>sylake_sylakim_association_type</argument>
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="akeneo_batch.job_repository" />
+            <argument type="service" id="pim_catalog.repository.association_type" />
+        </service>
+
+        <service id="sylake_sylakim.connector.job_parameters" class="Sylake\Sylakim\Connector\JobParameters">
+            <argument>%sylake_sylakim.api_url%</argument>
+            <argument>%sylake_sylakim.api_public_id%</argument>
+            <argument>%sylake_sylakim.api_secret%</argument>
+            <tag name="akeneo_batch.job.job_parameters.default_values_provider" />
+            <tag name="akeneo_batch.job.job_parameters.constraint_collection_provider" />
+        </service>
+    </services>
+</container>
