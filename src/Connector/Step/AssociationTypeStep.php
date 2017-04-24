@@ -51,13 +51,7 @@ final class AssociationTypeStep extends AbstractStep
 
         $associationTypes = $this->associationTypeRepository->findAll();
         foreach ($associationTypes as $associationType) {
-            if ($associationTypeClient->exists($associationType)) {
-                $associationTypeClient->update($associationType);
-
-                return;
-            }
-
-            $associationTypeClient->create($associationType);
+            $associationTypeClient->synchronize($associationType);
         }
 
     }

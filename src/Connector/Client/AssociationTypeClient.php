@@ -36,23 +36,7 @@ final class AssociationTypeClient implements AssociationTypeClientInterface
     /**
      * {@inheritdoc}
      */
-    public function exists(AssociationTypeInterface $associationType)
-    {
-
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function create(AssociationTypeInterface $associationType)
-    {
-
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function update(AssociationTypeInterface $associationType)
+    public function synchronize(AssociationTypeInterface $associationType)
     {
 
     }

@@ -8,18 +8,6 @@ interface AssociationTypeClientInterface
 {
     /**
      * @param AssociationTypeInterface $associationType
-     *
-     * @return bool
      */
-    public function exists(AssociationTypeInterface $associationType);
-
-    /**
-     * @param AssociationTypeInterface $associationType
-     */
-    public function create(AssociationTypeInterface $associationType);
-
-    /**
-     * @param AssociationTypeInterface $associationType
-     */
-    public function update(AssociationTypeInterface $associationType);
+    public function synchronize(AssociationTypeInterface $associationType);
 }
