@@ -69,11 +69,11 @@ final class AssociationTypeStep implements StepInterface
      */
     private function getClient(StepExecution $stepExecution)
     {
-        $jobParameters = $stepExecution->getJobParameters();
+        $jobParameters = $stepExecution->getJobParameters()->all();
         $associationTypeClient = $this->associationTypeClientFactory->create(
-            Url::fromString($jobParameters['url']),
-            $jobParameters['public_id'],
-            $jobParameters['secret']
+            Url::fromString($jobParameters['api_url']),
+            $jobParameters['api_public_id'],
+            $jobParameters['api_secret']
         );
 
         return $associationTypeClient;
