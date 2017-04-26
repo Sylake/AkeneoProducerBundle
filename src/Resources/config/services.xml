@@ -13,9 +13,15 @@
 
         <service id="sylake_sylakim.connector.step.association_type" class="Sylake\Sylakim\Connector\Step\AssociationTypeStep">
             <argument>sylake_sylakim_association_type</argument>
+            <argument type="service" id="pim_catalog.repository.association_type" />
+            <argument type="service" id="sylake_sylakim.connector.client_factory.association_type" />
+        </service>
+
+        <service id="sylake_sylakim.connector.step.association_type.akeneo" class="Sylake\Sylakim\Connector\Step\AkeneoStepDecorator"
+                 decorates="sylake_sylakim.connector.step.association_type">
+            <argument type="service" id="sylake_sylakim.connector.step.association_type.akeneo.inner" />
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
-            <argument type="service" id="pim_catalog.repository.association_type" />
         </service>
 
         <service id="sylake_sylakim.connector.job_parameters" class="Sylake\Sylakim\Connector\JobParameters">
@@ -25,5 +31,7 @@
             <tag name="akeneo_batch.job.job_parameters.default_values_provider" />
             <tag name="akeneo_batch.job.job_parameters.constraint_collection_provider" />
         </service>
+
+        <service id="sylake_sylakim.connector.client_factory.association_type" class="Sylake\Sylakim\Connector\Client\AssociationTypeClientFactory" public="false" />
     </services>
 </container>

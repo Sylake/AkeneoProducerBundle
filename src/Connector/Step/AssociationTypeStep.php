@@ -2,38 +2,80 @@
 
 namespace Sylake\Sylakim\Connector\Step;
 
-use Akeneo\Component\Batch\Job\JobRepositoryInterface;
 use Akeneo\Component\Batch\Model\StepExecution;
-use Akeneo\Component\Batch\Step\AbstractStep;
+use Akeneo\Component\Batch\Step\StepInterface;
 use Pim\Component\Catalog\Repository\AssociationTypeRepositoryInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Sylake\Sylakim\Connector\Client\AssociationTypeClientFactoryInterface;
+use Sylake\Sylakim\Connector\Client\AssociationTypeClientInterface;
+use Sylake\Sylakim\Connector\Client\Url;
 
-final class AssociationTypeStep extends AbstractStep
+final class AssociationTypeStep implements StepInterface
 {
+    /**
+     * @var string
+     */
+    private $name;
+
     /**
      * @var AssociationTypeRepositoryInterface
      */
     private $associationTypeRepository;
 
     /**
-     * {@inheritdoc}
+     * @var AssociationTypeClientFactoryInterface
+     */
+    private $associationTypeClientFactory;
+
+    /**
+     * @param string $name
+     * @param AssociationTypeRepositoryInterface $associationTypeRepository
+     * @param AssociationTypeClientFactoryInterface $associationTypeClientFactory
      */
     public function __construct(
         $name,
-        EventDispatcherInterface $eventDispatcher,
-        JobRepositoryInterface $jobRepository,
-        AssociationTypeRepositoryInterface $associationTypeRepository
+        AssociationTypeRepositoryInterface $associationTypeRepository,
+        AssociationTypeClientFactoryInterface $associationTypeClientFactory
     ) {
-        parent::__construct($name, $eventDispatcher, $jobRepository);
-
+        $this->name = $name;
         $this->associationTypeRepository = $associationTypeRepository;
+        $this->associationTypeClientFactory = $associationTypeClientFactory;
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function doExecute(StepExecution $stepExecution)
+    public function getName()
     {
-        
+        return $this->name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function execute(StepExecution $stepExecution)
+    {
+        $associationTypeClient = $this->getClient($stepExecution);
+
+        $associationTypes = $this->associationTypeRepository->findAll();
+        foreach ($associationTypes as $associationType) {
+            $associationTypeClient->synchronize($associationType);
+        }
+    }
+
+    /**
+     * @param StepExecution $stepExecution
+     *
+     * @return AssociationTypeClientInterface
+     */
+    private function getClient(StepExecution $stepExecution)
+    {
+        $jobParameters = $stepExecution->getJobParameters()->all();
+        $associationTypeClient = $this->associationTypeClientFactory->create(
+            Url::fromString($jobParameters['api_url']),
+            $jobParameters['api_public_id'],
+            $jobParameters['api_secret']
+        );
+
+        return $associationTypeClient;
     }
 }
