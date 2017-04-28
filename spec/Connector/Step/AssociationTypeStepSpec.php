@@ -46,10 +46,12 @@ final class AssociationTypeStepSpec extends ObjectBehavior
             'api_url' => 'http://sylius.org',
             'api_public_id' => 'public id',
             'api_secret' => 'secret',
+            'admin_login' => 'login',
+            'admin_password' => 'password',
         ]));
 
         $associationTypeClientFactory
-            ->create(Url::fromString('http://sylius.org'), 'public id', 'secret')
+            ->create(Url::fromString('http://sylius.org'), 'public id', 'secret', 'login', 'password')
             ->willReturn($associationTypeClient)
         ;
 

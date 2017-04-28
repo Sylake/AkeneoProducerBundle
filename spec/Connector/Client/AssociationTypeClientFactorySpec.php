@@ -18,7 +18,7 @@ final class AssociationTypeClientFactorySpec extends ObjectBehavior
     function it_creates_a_resource_client_from_given_credentials()
     {
         $this
-            ->create(Url::fromString('http://sylius.local'), 'public id', 'secret')
+            ->create(Url::fromString('http://sylius.local'), 'public id', 'secret', 'login', 'password')
             ->shouldBeAnInstanceOf(ResourceClientInterface::class)
         ;
     }

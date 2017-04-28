@@ -15,18 +15,18 @@ final class AssociationTypeClientFactory implements AssociationTypeClientFactory
     /**
      * {@inheritdoc}
      */
-    public function create(Url $url, $publicId, $secret)
+    public function create(Url $apiUrl, $apiPublicId, $apiSecret, $adminLogin, $adminPassword)
     {
         $oauth2Client = new GuzzleClient([
-            'base_url' => 'http://localhost:8080',
+            'base_url' => (string) $apiUrl,
         ]);
 
         $config = [
-            'token_url' => 'api/oauth/v2/token',
-            'client_id' => '13cdr011ecmscscgccss88gg8os04ggwo88o44ok00oww0csg4',
-            'client_secret' => '2ohj2nvohruocc8wg0w08s4c4cgwco0ss0o4okgck4cogsck84',
-            'username' => 'api@example.com',
-            'password' => 'sylius-api'
+            'token_url' => 'oauth/v2/token',
+            'client_id' => $apiPublicId,
+            'client_secret' => $apiSecret,
+            'username' => $adminLogin,
+            'password' => $adminPassword,
         ];
 
         $token = new PasswordCredentials($oauth2Client, $config);
@@ -34,7 +34,7 @@ final class AssociationTypeClientFactory implements AssociationTypeClientFactory
 
         $oauth2 = new Oauth2Subscriber($token, $refreshToken);
 
-        $syliusClient = Client::createFromUrl('http://localhost:8080/api/v1/', $oauth2);
+        $syliusClient = Client::createFromUrl((string) $apiUrl . '/v1/', $oauth2);
 
         $apiResolver = new ApiResolver($syliusClient, new ArrayUriMap([]));
 

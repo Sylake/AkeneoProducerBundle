@@ -82,7 +82,9 @@ final class AssociationTypeStep implements StepInterface
         $associationTypeClient = $this->associationTypeClientFactory->create(
             Url::fromString($jobParameters['api_url']),
             $jobParameters['api_public_id'],
-            $jobParameters['api_secret']
+            $jobParameters['api_secret'],
+            $jobParameters['admin_login'],
+            $jobParameters['admin_password']
         );
 
         return $associationTypeClient;
