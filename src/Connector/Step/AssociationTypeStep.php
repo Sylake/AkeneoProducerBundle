@@ -6,8 +6,9 @@ use Akeneo\Component\Batch\Model\StepExecution;
 use Akeneo\Component\Batch\Step\StepInterface;
 use Pim\Component\Catalog\Repository\AssociationTypeRepositoryInterface;
 use Sylake\Sylakim\Connector\Client\AssociationTypeClientFactoryInterface;
-use Sylake\Sylakim\Connector\Client\AssociationTypeClientInterface;
+use Sylake\Sylakim\Connector\Client\ResourceClientInterface;
 use Sylake\Sylakim\Connector\Client\Url;
+use Sylake\Sylakim\Connector\Synchronizer\AssociationTypeSynchronizerInterface;
 
 final class AssociationTypeStep implements StepInterface
 {
@@ -27,18 +28,26 @@ final class AssociationTypeStep implements StepInterface
     private $associationTypeClientFactory;
 
     /**
+     * @var AssociationTypeSynchronizerInterface
+     */
+    private $associationTypeSynchronizer;
+
+    /**
      * @param string $name
      * @param AssociationTypeRepositoryInterface $associationTypeRepository
      * @param AssociationTypeClientFactoryInterface $associationTypeClientFactory
+     * @param AssociationTypeSynchronizerInterface $associationTypeSynchronizer
      */
     public function __construct(
         $name,
         AssociationTypeRepositoryInterface $associationTypeRepository,
-        AssociationTypeClientFactoryInterface $associationTypeClientFactory
+        AssociationTypeClientFactoryInterface $associationTypeClientFactory,
+        AssociationTypeSynchronizerInterface $associationTypeSynchronizer
     ) {
         $this->name = $name;
         $this->associationTypeRepository = $associationTypeRepository;
         $this->associationTypeClientFactory = $associationTypeClientFactory;
+        $this->associationTypeSynchronizer = $associationTypeSynchronizer;
     }
 
     /**
@@ -58,14 +67,14 @@ final class AssociationTypeStep implements StepInterface
 
         $associationTypes = $this->associationTypeRepository->findAll();
         foreach ($associationTypes as $associationType) {
-            $associationTypeClient->synchronize($associationType);
+            $this->associationTypeSynchronizer->synchronize($associationTypeClient, $associationType);
         }
     }
 
     /**
      * @param StepExecution $stepExecution
      *
-     * @return AssociationTypeClientInterface
+     * @return ResourceClientInterface
      */
     private function getClient(StepExecution $stepExecution)
     {

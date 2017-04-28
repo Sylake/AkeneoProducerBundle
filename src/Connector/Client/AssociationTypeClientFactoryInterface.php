@@ -9,7 +9,7 @@ interface AssociationTypeClientFactoryInterface
      * @param string $publicId
      * @param string $secret
      *
-     * @return AssociationTypeClientInterface
+     * @return ResourceClientInterface
      */
     public function create(Url $url, $publicId, $secret);
 }

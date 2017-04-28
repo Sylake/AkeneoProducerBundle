@@ -12,7 +12,8 @@
     ],
     "require": {
         "akeneo/pim-community-dev": "^1.7",
-        "symfony/symfony": "^2.7"
+        "symfony/symfony": "^2.7",
+        "lakion/sylius-api-php": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
