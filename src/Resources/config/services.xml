@@ -35,8 +35,9 @@
 
         <service id="sylake_akeneo_producer.connector.form_provider" class="%pim_enrich.provider.form.job_instance.class%">
             <argument type="collection">
-                <argument key="sylake_akeneo_producer">pim-job-instance-sylake-sylakim</argument>
+                <argument key="sylake_akeneo_producer">pim-job-instance-sylake-akeneo-producer</argument>
             </argument>
+            <tag name="pim_enrich.provider.form" />
         </service>
 
         <service id="sylake_akeneo_producer.connector.step.rabbit_mq_attribute.export" class="%pim_connector.step.item_step.class%">
