@@ -17,10 +17,6 @@ final class SylakeSylakimExtension extends Extension
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
-        $container->setParameter('sylake_sylakim.api_url', $config['api_url']);
-        $container->setParameter('sylake_sylakim.api_public_id', $config['api_public_id']);
-        $container->setParameter('sylake_sylakim.api_secret', $config['api_secret']);
-
         $loader->load('services.xml');
     }
 }
