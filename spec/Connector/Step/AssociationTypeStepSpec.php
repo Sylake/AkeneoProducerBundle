@@ -9,16 +9,18 @@ use PhpSpec\ObjectBehavior;
 use Pim\Component\Catalog\Model\AssociationTypeInterface;
 use Pim\Component\Catalog\Repository\AssociationTypeRepositoryInterface;
 use Sylake\Sylakim\Connector\Client\AssociationTypeClientFactoryInterface;
-use Sylake\Sylakim\Connector\Client\AssociationTypeClientInterface;
+use Sylake\Sylakim\Connector\Client\ResourceClientInterface;
 use Sylake\Sylakim\Connector\Client\Url;
+use Sylake\Sylakim\Connector\Synchronizer\AssociationTypeSynchronizerInterface;
 
 final class AssociationTypeStepSpec extends ObjectBehavior
 {
     function let(
         AssociationTypeRepositoryInterface $associationTypeRepository,
-        AssociationTypeClientFactoryInterface $associationTypeClientFactory
+        AssociationTypeClientFactoryInterface $associationTypeClientFactory,
+        AssociationTypeSynchronizerInterface $associationTypeSynchronizer
     ) {
-        $this->beConstructedWith('step name', $associationTypeRepository, $associationTypeClientFactory);
+        $this->beConstructedWith('step name', $associationTypeRepository, $associationTypeClientFactory, $associationTypeSynchronizer);
     }
 
     function it_is_an_akeneo_step()
@@ -34,7 +36,8 @@ final class AssociationTypeStepSpec extends ObjectBehavior
     function it_synchronizes_association_types(
         AssociationTypeRepositoryInterface $associationTypeRepository,
         AssociationTypeClientFactoryInterface $associationTypeClientFactory,
-        AssociationTypeClientInterface $associationTypeClient,
+        AssociationTypeSynchronizerInterface $associationTypeSynchronizer,
+        ResourceClientInterface $associationTypeClient,
         AssociationTypeInterface $firstAssociationType,
         AssociationTypeInterface $secondAssociationType,
         StepExecution $stepExecution
@@ -43,10 +46,12 @@ final class AssociationTypeStepSpec extends ObjectBehavior
             'api_url' => 'http://sylius.org',
             'api_public_id' => 'public id',
             'api_secret' => 'secret',
+            'admin_login' => 'login',
+            'admin_password' => 'password',
         ]));
 
         $associationTypeClientFactory
-            ->create(Url::fromString('http://sylius.org'), 'public id', 'secret')
+            ->create(Url::fromString('http://sylius.org'), 'public id', 'secret', 'login', 'password')
             ->willReturn($associationTypeClient)
         ;
 
@@ -55,8 +60,8 @@ final class AssociationTypeStepSpec extends ObjectBehavior
             $secondAssociationType,
         ]);
 
-        $associationTypeClient->synchronize($firstAssociationType)->shouldBeCalled();
-        $associationTypeClient->synchronize($secondAssociationType)->shouldBeCalled();
+        $associationTypeSynchronizer->synchronize($associationTypeClient, $firstAssociationType)->shouldBeCalled();
+        $associationTypeSynchronizer->synchronize($associationTypeClient, $secondAssociationType)->shouldBeCalled();
 
         $this->execute($stepExecution);
     }
