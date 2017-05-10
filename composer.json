@@ -13,7 +13,7 @@
     "require": {
         "akeneo/pim-community-dev": "^1.7",
         "symfony/symfony": "^2.7",
-        "lakion/sylius-api-php": "dev-master"
+        "php-amqplib/rabbitmq-bundle": "^1.12"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
