@@ -1,110 +1,110 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="sylake_sylakim.connector.job" class="%pim_connector.job.simple_job.class%">
-            <argument>sylake_sylakim</argument>
+        <service id="sylake_akeneo_producer.connector.job" class="%pim_connector.job.simple_job.class%">
+            <argument>sylake_akeneo_producer</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
             <argument type="collection">
-                <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_attribute.export" />
-                <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_attribute_option.export" />
-                <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_association_type.export" />
-                <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_category.export" />
-                <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_product.export" />
+                <argument type="service" id="sylake_akeneo_producer.connector.step.rabbit_mq_attribute.export" />
+                <argument type="service" id="sylake_akeneo_producer.connector.step.rabbit_mq_attribute_option.export" />
+                <argument type="service" id="sylake_akeneo_producer.connector.step.rabbit_mq_association_type.export" />
+                <argument type="service" id="sylake_akeneo_producer.connector.step.rabbit_mq_category.export" />
+                <argument type="service" id="sylake_akeneo_producer.connector.step.rabbit_mq_product.export" />
             </argument>
             <tag name="akeneo_batch.job" connector="AkeneoProducerBundle connector" type="%pim_connector.job.export_type%" />
         </service>
 
-        <service id="sylake_sylakim.job.job_parameters.default_values_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.default_values_provider.product_csv_export.class%">
+        <service id="sylake_akeneo_producer.job.job_parameters.default_values_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.default_values_provider.product_csv_export.class%">
             <argument type="service" id="pim_connector.job.job_parameters.default_values_provider.simple_csv_export" />
             <argument type="service" id="pim_catalog.repository.channel" />
             <argument type="service" id="pim_catalog.repository.locale" />
             <argument type="collection">
-                <argument>sylake_sylakim</argument>
+                <argument>sylake_akeneo_producer</argument>
             </argument>
             <tag name="akeneo_batch.job.job_parameters.default_values_provider" />
         </service>
 
-        <service id="sylake_sylakim.job.job_parameters.constraint_collection_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.constraint_collection_provider.product_csv_export.class%">
+        <service id="sylake_akeneo_producer.job.job_parameters.constraint_collection_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.constraint_collection_provider.product_csv_export.class%">
             <argument type="service" id="pim_connector.job.job_parameters.constraint_collection_provider.simple_csv_export" />
             <argument type="collection">
-                <argument>sylake_sylakim</argument>
+                <argument>sylake_akeneo_producer</argument>
             </argument>
             <tag name="akeneo_batch.job.job_parameters.constraint_collection_provider" />
         </service>
 
-        <service id="sylake_sylakim.connector.form_provider" class="%pim_enrich.provider.form.job_instance.class%">
+        <service id="sylake_akeneo_producer.connector.form_provider" class="%pim_enrich.provider.form.job_instance.class%">
             <argument type="collection">
-                <argument key="sylake_sylakim">pim-job-instance-sylake-sylakim</argument>
+                <argument key="sylake_akeneo_producer">pim-job-instance-sylake-sylakim</argument>
             </argument>
         </service>
 
-        <service id="sylake_sylakim.connector.step.rabbit_mq_attribute.export" class="%pim_connector.step.item_step.class%">
+        <service id="sylake_akeneo_producer.connector.step.rabbit_mq_attribute.export" class="%pim_connector.step.item_step.class%">
             <argument>publish_attribute_step</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
             <argument type="service" id="pim_connector.reader.database.attribute" />
             <argument type="service" id="pim_connector.processor.normalization.attribute" />
-            <argument type="service" id="sylake_sylakim.connector.writer.rabbit_mq.attribute" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute" />
         </service>
 
-        <service id="sylake_sylakim.connector.step.rabbit_mq_attribute_option.export" class="%pim_connector.step.item_step.class%">
+        <service id="sylake_akeneo_producer.connector.step.rabbit_mq_attribute_option.export" class="%pim_connector.step.item_step.class%">
             <argument>publish_attribute_option_step</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
             <argument type="service" id="pim_connector.reader.database.attribute_option" />
             <argument type="service" id="pim_connector.processor.normalization.attribute_option" />
-            <argument type="service" id="sylake_sylakim.connector.writer.rabbit_mq.attribute_option" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute_option" />
         </service>
 
-        <service id="sylake_sylakim.connector.step.rabbit_mq_association_type.export" class="%pim_connector.step.item_step.class%">
+        <service id="sylake_akeneo_producer.connector.step.rabbit_mq_association_type.export" class="%pim_connector.step.item_step.class%">
             <argument>publish_association_type_step</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
             <argument type="service" id="pim_connector.reader.database.association_type" />
             <argument type="service" id="pim_connector.processor.normalization.association_type" />
-            <argument type="service" id="sylake_sylakim.connector.writer.rabbit_mq.association_type" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" />
         </service>
 
-        <service id="sylake_sylakim.connector.step.rabbit_mq_category.export" class="%pim_connector.step.item_step.class%">
+        <service id="sylake_akeneo_producer.connector.step.rabbit_mq_category.export" class="%pim_connector.step.item_step.class%">
             <argument>publish_category_step</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
             <argument type="service" id="pim_connector.reader.database.association_type" />
             <argument type="service" id="pim_connector.processor.normalization.association_type" />
-            <argument type="service" id="sylake_sylakim.connector.writer.rabbit_mq.category" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" />
         </service>
 
-        <service id="sylake_sylakim.connector.step.rabbit_mq_product.export" class="%pim_connector.step.item_step.class%">
+        <service id="sylake_akeneo_producer.connector.step.rabbit_mq_product.export" class="%pim_connector.step.item_step.class%">
             <argument>publish_product_step</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
             <argument type="service" id="pim_connector.reader.database.product" />
             <argument type="service" id="pim_connector.processor.normalization.product" />
-            <argument type="service" id="sylake_sylakim.connector.writer.rabbit_mq.product" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" />
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.attribute" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_attribute_created</argument>
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.attribute_option" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute_option" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_attribute_option_created</argument>
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.association_type" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_association_type_created</argument>
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.product" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_product_created</argument>
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.category" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_category_created</argument>
         </service>
