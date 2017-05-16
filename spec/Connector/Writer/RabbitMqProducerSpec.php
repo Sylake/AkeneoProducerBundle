@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Sylake\Sylakim\Connector\Writer;
+namespace spec\Sylake\AkeneoProducerBundle\Connector\Writer;
 
 use Akeneo\Component\Batch\Item\ItemWriterInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 use Prophecy\Argument;
-use Sylake\Sylakim\Connector\Event\Events;
-use Sylake\Sylakim\Connector\Writer\RabbitMqProducer;
-use Sylake\Sylakim\Connector\Writer\RabbitMqProduct;
+use Sylake\AkeneoProducerBundle\Connector\Event\Events;
+use Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer;
+use Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProduct;
 use PhpSpec\ObjectBehavior;
 
 final class RabbitMqProducerSpec extends ObjectBehavior

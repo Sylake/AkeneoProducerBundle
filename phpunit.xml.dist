@@ -9,7 +9,7 @@
          beStrictAboutTodoAnnotatedTests="true"
          verbose="true"
 >
-    <testsuite name="Sylakim">
+    <testsuite name="AkeneoProducerBundle">
         <directory suffix="Test.php">tests</directory>
     </testsuite>
 

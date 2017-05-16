@@ -10,7 +10,7 @@
                 <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_category.export" />
                 <argument type="service" id="sylake_sylakim.connector.step.rabbit_mq_product.export" />
             </argument>
-            <tag name="akeneo_batch.job" connector="Sylakim connector" type="%pim_connector.job.export_type%" />
+            <tag name="akeneo_batch.job" connector="AkeneoProducerBundle connector" type="%pim_connector.job.export_type%" />
         </service>
 
         <service id="sylake_sylakim.job.job_parameters.default_values_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.default_values_provider.product_csv_export.class%">
@@ -64,17 +64,17 @@
             <argument type="service" id="sylake_sylakim.connector.writer.rabbit_mq.product" />
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.association_type" class="Sylake\Sylakim\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_sylakim.connector.writer.rabbit_mq.association_type" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_association_type_created</argument>
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.product" class="Sylake\Sylakim\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_sylakim.connector.writer.rabbit_mq.product" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_product_created</argument>
         </service>
 
-        <service id="sylake_sylakim.connector.writer.rabbit_mq.category" class="Sylake\Sylakim\Connector\Writer\RabbitMqProducer">
+        <service id="sylake_sylakim.connector.writer.rabbit_mq.category" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
             <argument type="string">akeneo_category_created</argument>
         </service>

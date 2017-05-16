@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylake\Sylakim\Connector\Writer;
+namespace Sylake\AkeneoProducerBundle\Connector\Writer;
 
 use Akeneo\Component\Batch\Item\ItemWriterInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;

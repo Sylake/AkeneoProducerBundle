@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylake\Sylakim\DependencyInjection;
+namespace Sylake\AkeneoProducerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
