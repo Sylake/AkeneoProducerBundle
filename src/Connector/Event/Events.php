@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylake\Sylakim\Connector\Event;
+namespace Sylake\AkeneoProducerBundle\Connector\Event;
 
 final class Events
 {

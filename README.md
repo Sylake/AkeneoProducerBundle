@@ -1,4 +1,4 @@
-Sylakim
-=======
+AkeneoProducerBundle
+====================
 
 Akeneo -> Sylius connector.

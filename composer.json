@@ -1,5 +1,5 @@
 {
-    "name": "sylake/sylakim",
+    "name": "sylake/akeneo-producer-bundle",
     "description": "",
     "type": "akeneo-connector",
     "license": "MIT",
@@ -20,10 +20,10 @@
         "phpspec/phpspec": "^3.2"
     },
     "autoload": {
-        "psr-4": { "Sylake\\Sylakim\\": "src/" }
+        "psr-4": { "Sylake\\AkeneoProducerBundle\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\Sylake\\Sylakim\\": "tests/" }
+        "psr-4": { "spec\\Sylake\\AkeneoProducerBundle\\": "spec/" }
     },
     "repositories": [
         {

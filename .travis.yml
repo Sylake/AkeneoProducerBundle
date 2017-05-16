@@ -17,6 +17,7 @@ cache:
 
 before_install:
     - phpenv config-rm xdebug.ini || true
+    - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 install:
     - composer update --prefer-dist
@@ -24,5 +25,5 @@ install:
 script:
     - composer validate --strict
 
+    - vendor/bin/phpspec run --format dot -vvv --no-interaction
     - vendor/bin/phpunit
-    - vendor/bin/phpspec run
