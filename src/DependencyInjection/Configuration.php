@@ -13,7 +13,7 @@ final class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sylake_sylakim');
+        $rootNode = $treeBuilder->root('sylake_akeneo_producer');
 
         return $treeBuilder;
     }
