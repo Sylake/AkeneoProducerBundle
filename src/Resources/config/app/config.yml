@@ -10,6 +10,6 @@ old_sound_rabbit_mq:
             connection_timeout: 3
             read_write_timeout: 3
     producers:
-        pim_product:
+        akeneo:
             connection: default
             exchange_options: { name: 'akeneo', type: fanout }
