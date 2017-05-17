@@ -71,8 +71,8 @@
             <argument>publish_category_step</argument>
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="akeneo_batch.job_repository" />
-            <argument type="service" id="pim_connector.reader.database.association_type" />
-            <argument type="service" id="pim_connector.processor.normalization.association_type" />
+            <argument type="service" id="pim_connector.reader.database.category" />
+            <argument type="service" id="pim_connector.processor.normalization.category" />
             <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" />
         </service>
 
