@@ -24,6 +24,20 @@ protected function registerProjectBundles()
 }
 ```
 
+3. Configure RabbitMQ default connection:
+
+```yaml
+# app/config/config.yml
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host: 'localhost'
+            port: 5672
+            user: 'guest'
+            password: 'guest'
+```
+
 Usage
 -----
 
