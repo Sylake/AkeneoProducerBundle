@@ -32,9 +32,9 @@ final class SylakeAkeneoProducerExtension extends Extension implements PrependEx
 
         $container->prependExtensionConfig('old_sound_rabbit_mq', [
             'producers' => [
-                'akeneo' => [
+                'sylake' => [
                     'exchange_options' => [
-                        'name' => 'akeneo',
+                        'name' => 'sylake',
                         'type' => 'fanout',
                     ],
                 ],

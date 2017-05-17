@@ -86,27 +86,27 @@
         </service>
 
         <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
-            <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_attribute_created</argument>
         </service>
 
         <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute_option" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
-            <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_attribute_option_created</argument>
         </service>
 
         <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
-            <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_association_type_created</argument>
         </service>
 
         <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
-            <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_product_created</argument>
         </service>
 
         <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
-            <argument type="service" id="old_sound_rabbit_mq.akeneo_producer" />
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_category_created</argument>
         </service>
     </services>
