@@ -15,21 +15,13 @@
             <tag name="akeneo_batch.job" connector="AkeneoProducerBundle connector" type="%pim_connector.job.export_type%" />
         </service>
 
-        <service id="sylake_akeneo_producer.job.job_parameters.default_values_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.default_values_provider.product_csv_export.class%">
-            <argument type="service" id="pim_connector.job.job_parameters.default_values_provider.simple_csv_export" />
-            <argument type="service" id="pim_catalog.repository.channel" />
-            <argument type="service" id="pim_catalog.repository.locale" />
+        <service id="sylake_akeneo_producer.job_parameters" class="Sylake\AkeneoProducerBundle\Connector\JobParameters\AkeneoProducer">
+            <argument type="service" id="pim_connector.job.job_parameters.default_values_provider.product_csv_export" />
+            <argument type="service" id="pim_connector.job.job_parameters.constraint_collection_provider.product_csv_export" />
             <argument type="collection">
                 <argument>sylake_akeneo_producer</argument>
             </argument>
             <tag name="akeneo_batch.job.job_parameters.default_values_provider" />
-        </service>
-
-        <service id="sylake_akeneo_producer.job.job_parameters.constraint_collection_provider.rabbit_mq_export" class="%pim_connector.job.job_parameters.constraint_collection_provider.product_csv_export.class%">
-            <argument type="service" id="pim_connector.job.job_parameters.constraint_collection_provider.simple_csv_export" />
-            <argument type="collection">
-                <argument>sylake_akeneo_producer</argument>
-            </argument>
             <tag name="akeneo_batch.job.job_parameters.constraint_collection_provider" />
         </service>
 
