@@ -45,8 +45,9 @@ final class AkeneoProducer implements ConstraintCollectionProviderInterface, Def
     {
         $defaultValues = $this->baseDefaultValuesProvider->getDefaultValues();
 
-        $defaultValues['filters']['data'] = [
-            ['field' => 'enabled', 'operator' => '=', 'value' => true],
+        $defaultValues['filters'] = [
+            'data' => ['field' => 'enabled', 'operator' => '=', 'value' => true],
+            'structure' => [],
         ];
 
         return $defaultValues;
