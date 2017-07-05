@@ -101,5 +101,16 @@
             <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_category_updated</argument>
         </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\ProductSavedListener">
+            <argument type="service">
+                <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                    <argument type="service" id="pim_connector.processor.normalization.product" />
+                    <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" />
+                    <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                </service>
+            </argument>
+            <tag name="kernel.event_listener" event="akeneo.storage.pre_save" method="__invoke" />
+        </service>
     </services>
 </container>
