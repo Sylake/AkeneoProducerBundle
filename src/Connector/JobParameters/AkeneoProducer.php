@@ -6,7 +6,10 @@ use Akeneo\Component\Batch\Job\JobInterface;
 use Akeneo\Component\Batch\Job\JobParameters\ConstraintCollectionProviderInterface;
 use Akeneo\Component\Batch\Job\JobParameters\DefaultValuesProviderInterface;
 
-final class AkeneoProducer implements ConstraintCollectionProviderInterface, DefaultValuesProviderInterface
+/**
+ * Non-final just to make it lazy-loadable.
+ */
+/* final */ class AkeneoProducer implements ConstraintCollectionProviderInterface, DefaultValuesProviderInterface
 {
     /**
      * @var DefaultValuesProviderInterface

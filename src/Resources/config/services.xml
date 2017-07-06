@@ -15,7 +15,7 @@
             <tag name="akeneo_batch.job" connector="AkeneoProducerBundle connector" type="%pim_connector.job.export_type%" />
         </service>
 
-        <service id="sylake_akeneo_producer.job_parameters" class="Sylake\AkeneoProducerBundle\Connector\JobParameters\AkeneoProducer">
+        <service id="sylake_akeneo_producer.job_parameters" class="Sylake\AkeneoProducerBundle\Connector\JobParameters\AkeneoProducer" lazy="true">
             <argument type="service" id="pim_connector.job.job_parameters.default_values_provider.product_csv_export" />
             <argument type="service" id="pim_connector.job.job_parameters.constraint_collection_provider.product_csv_export" />
             <argument type="collection">
@@ -100,6 +100,18 @@
         <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProducer">
             <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_category_updated</argument>
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\AssociationTypeSavedListener">
+            <argument type="service">
+                <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                    <argument type="service" id="pim_connector.processor.normalization.association_type" />
+                    <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" />
+                    <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                </service>
+            </argument>
+            <tag name="doctrine.event_listener" event="postPersist" method="__invoke" />
+            <tag name="doctrine.event_listener" event="postUpdate" method="__invoke" />
         </service>
 
         <service class="Sylake\AkeneoProducerBundle\Listener\AttributeSavedListener">
