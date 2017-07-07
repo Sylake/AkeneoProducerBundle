@@ -42,7 +42,7 @@ final class ItemProjectorSpec extends ObjectBehavior
 
         $processor->setStepExecution(Argument::that(function (StepExecution $stepExecution) {
             return $stepExecution->getJobParameters()->all() === ['foo' => 'bar'];
-        }))->shouldBeCalled();;
+        }))->shouldBeCalled();
 
         $processor->process($item)->willReturn($processedItem);
         $writer->write([$processedItem])->shouldBeCalled();
