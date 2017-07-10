@@ -21,6 +21,7 @@
             <argument type="collection">
                 <argument>sylake_akeneo_producer</argument>
             </argument>
+            <argument>%sylake_akeneo_producer.config.locales%</argument>
             <tag name="akeneo_batch.job.job_parameters.default_values_provider" />
             <tag name="akeneo_batch.job.job_parameters.constraint_collection_provider" />
         </service>

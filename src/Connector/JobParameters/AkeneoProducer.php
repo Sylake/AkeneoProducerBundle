@@ -27,18 +27,26 @@ use Akeneo\Component\Batch\Job\JobParameters\DefaultValuesProviderInterface;
     private $supportedJobNames;
 
     /**
+     * @var string[]
+     */
+    private $locales;
+
+    /**
      * @param DefaultValuesProviderInterface $baseDefaultValuesProvider
      * @param ConstraintCollectionProviderInterface $baseConstraintCollectionProvider
      * @param string[] $supportedJobNames
+     * @param string[] $locales
      */
     public function __construct(
         DefaultValuesProviderInterface $baseDefaultValuesProvider,
         ConstraintCollectionProviderInterface $baseConstraintCollectionProvider,
-        array $supportedJobNames
+        array $supportedJobNames,
+        array $locales
     ) {
         $this->baseDefaultValuesProvider = $baseDefaultValuesProvider;
         $this->baseConstraintCollectionProvider = $baseConstraintCollectionProvider;
         $this->supportedJobNames = $supportedJobNames;
+        $this->locales = $locales;
     }
 
     /**
@@ -49,8 +57,17 @@ use Akeneo\Component\Batch\Job\JobParameters\DefaultValuesProviderInterface;
         return array_replace($this->baseDefaultValuesProvider->getDefaultValues(), [
             'with_media' => false,
             'filters' => [
-                'data' => [['field' => 'enabled', 'operator' => '=', 'value' => true]],
-                'structure' => ['scope' => 'ecommerce', 'locales' => ['en_GB', 'de_DE']],
+                'data' => [
+                    [
+                        'field' => 'enabled',
+                        'operator' => '=',
+                        'value' => true
+                    ]
+                ],
+                'structure' => [
+                    'scope' => 'ecommerce',
+                    'locales' => $this->locales
+                ],
             ],
         ]);
     }

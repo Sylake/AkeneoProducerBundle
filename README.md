@@ -38,6 +38,17 @@ old_sound_rabbit_mq:
             password: 'guest'
 ```
 
+4. Configure locales (optional) (default: en_GB, de_DE):
+
+```yaml
+# app/config/config.yml
+
+sylake_akeneo_producer:
+    locales:
+        - 'en_GB'
+        - 'de_DE'
+```
+
 Usage
 -----
 
