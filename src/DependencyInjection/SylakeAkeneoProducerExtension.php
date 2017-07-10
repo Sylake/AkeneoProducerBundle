@@ -16,6 +16,7 @@ final class SylakeAkeneoProducerExtension extends Extension implements PrependEx
     public function load(array $configs, ContainerBuilder $container)
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
+
         $container->setParameter('sylake_akeneo_producer.config.locales', $config['locales']);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
@@ -29,7 +30,7 @@ final class SylakeAkeneoProducerExtension extends Extension implements PrependEx
     public function prepend(ContainerBuilder $container)
     {
         if (!$container->hasExtension('old_sound_rabbit_mq')) {
-            throw new \RuntimeException('Make sure OldSoundRabbitMqBundle is enabled.');
+            return;
         }
 
         $container->prependExtensionConfig('old_sound_rabbit_mq', [
