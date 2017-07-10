@@ -15,6 +15,14 @@ final class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sylake_akeneo_producer');
 
+        $rootNode
+            ->children()
+                ->arrayNode('locales')
+                    ->prototype('scalar')->end()
+                    ->defaultValue(['en_GB', 'de_DE'])
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 }
