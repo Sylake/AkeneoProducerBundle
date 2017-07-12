@@ -130,7 +130,7 @@
                     <argument type="service" id="sylake_akeneo_producer.job_parameters" />
                 </service>
             </argument>
-            <tag name="kernel.event_listener" event="akeneo.storage.pre_save" method="__invoke" />
+            <tag name="kernel.event_listener" event="akeneo.storage.post_save" method="__invoke" />
         </service>
 
         <service class="Sylake\AkeneoProducerBundle\Listener\CategorySavedListener">
@@ -153,7 +153,7 @@
                     <argument type="service" id="sylake_akeneo_producer.job_parameters" />
                 </service>
             </argument>
-            <tag name="kernel.event_listener" event="akeneo.storage.pre_save" method="__invoke" />
+            <tag name="kernel.event_listener" event="akeneo.storage.post_save" method="__invoke" />
         </service>
     </services>
 </container>
