@@ -145,6 +145,17 @@
             <tag name="doctrine.event_listener" event="postUpdate" method="__invoke" />
         </service>
 
+        <service class="Sylake\AkeneoProducerBundle\Listener\CategoryTranslationUpdatedListener">
+            <argument type="service">
+                <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                    <argument type="service" id="pim_connector.processor.normalization.category" />
+                    <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" />
+                    <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                </service>
+            </argument>
+            <tag name="doctrine.event_listener" event="postUpdate" method="__invoke" />
+        </service>
+
         <service class="Sylake\AkeneoProducerBundle\Listener\ProductSavedListener">
             <argument type="service">
                 <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
