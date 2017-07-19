@@ -7,16 +7,12 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class AttributeSavedListener
 {
-    /** @var ItemProjectorInterface */
-    private $attributeProjector;
+    /** @var ItemSetInterface */
+    private $itemSet;
 
-    /** @var ItemProjectorInterface */
-    private $attributeOptionProjector;
-
-    public function __construct(ItemProjectorInterface $attributeProjector, ItemProjectorInterface $attributeOptionProjector)
+    public function __construct(ItemSetInterface $itemSet)
     {
-        $this->attributeProjector = $attributeProjector;
-        $this->attributeOptionProjector = $attributeOptionProjector;
+        $this->itemSet = $itemSet;
     }
 
     public function __invoke(GenericEvent $event)
@@ -27,10 +23,10 @@ final class AttributeSavedListener
             return;
         }
 
-        $this->attributeProjector->__invoke($attribute);
+        $this->itemSet->add($attribute);
 
         foreach ($attribute->getOptions() as $attributeOption) {
-            $this->attributeOptionProjector->__invoke($attributeOption);
+            $this->itemSet->add($attributeOption);
         }
     }
 }

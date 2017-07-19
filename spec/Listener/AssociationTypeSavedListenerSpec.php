@@ -7,30 +7,30 @@ use Doctrine\Common\Persistence\ObjectManager;
 use PhpSpec\ObjectBehavior;
 use Pim\Component\Catalog\Model\AssociationTypeInterface;
 use Prophecy\Argument;
-use Sylake\AkeneoProducerBundle\Listener\ItemProjectorInterface;
+use Sylake\AkeneoProducerBundle\Listener\ItemSetInterface;
 
 final class AssociationTypeSavedListenerSpec extends ObjectBehavior
 {
-    function let(ItemProjectorInterface $associationTypeProjector)
+    function let(ItemSetInterface $itemSet)
     {
-        $this->beConstructedWith($associationTypeProjector);
+        $this->beConstructedWith($itemSet);
     }
 
     function it_ignores_items_not_being_an_association_type(
-        ItemProjectorInterface $associationTypeProjector,
+        ItemSetInterface $itemSet,
         ObjectManager $objectManager
     ) {
-        $associationTypeProjector->__invoke(Argument::any())->shouldNotBeCalled();
+        $itemSet->add(Argument::any())->shouldNotBeCalled();
 
         $this(new LifecycleEventArgs(new \stdClass(), $objectManager->getWrappedObject()));
     }
 
-    function it_projects_item_being_an_association_type(
-        ItemProjectorInterface $associationTypeProjector,
+    function it_adds_item_being_an_association_type_to_item_set(
+        ItemSetInterface $itemSet,
         ObjectManager $objectManager,
         AssociationTypeInterface $associationType
     ) {
-        $associationTypeProjector->__invoke($associationType)->shouldBeCalled();
+        $itemSet->add($associationType)->shouldBeCalled();
 
         $this(new LifecycleEventArgs($associationType->getWrappedObject(), $objectManager->getWrappedObject()));
     }

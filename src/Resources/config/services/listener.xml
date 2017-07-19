@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="sylake_akeneo_producer.listener.item_set" class="Sylake\AkeneoProducerBundle\Listener\ItemSet" public="false" />
+
+        <service id="sylake_akeneo_producer.listener.item_projector" class="Sylake\AkeneoProducerBundle\Listener\CompositeItemProjector" lazy="true" public="false">
+            <argument type="collection">
+                <argument key="\Pim\Component\Catalog\Model\AssociationTypeInterface" type="service">
+                    <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                        <argument type="service" id="pim_connector.processor.normalization.association_type" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" />
+                        <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                    </service>
+                </argument>
+                <argument key="\Pim\Component\Catalog\Model\AttributeInterface" type="service">
+                    <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                        <argument type="service" id="pim_connector.processor.normalization.attribute" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute" />
+                        <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                    </service>
+                </argument>
+                <argument key="\Pim\Component\Catalog\Model\AttributeOptionInterface" type="service">
+                    <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                        <argument type="service" id="pim_connector.processor.normalization.attribute_option" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute_option" />
+                        <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                    </service>
+                </argument>
+                <argument key="\Akeneo\Component\Classification\Model\CategoryInterface" type="service">
+                    <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                        <argument type="service" id="pim_connector.processor.normalization.category" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" />
+                        <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                    </service>
+                </argument>
+                <argument key="\Pim\Component\Catalog\Model\ProductInterface" type="service">
+                    <service class="Sylake\AkeneoProducerBundle\Listener\ItemProjector">
+                        <argument type="service" id="pim_connector.processor.normalization.product" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" />
+                        <argument type="service" id="sylake_akeneo_producer.job_parameters" />
+                    </service>
+                </argument>
+            </argument>
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\ItemsProjector">
+            <argument type="service" id="sylake_akeneo_producer.listener.item_set" />
+            <argument type="service" id="sylake_akeneo_producer.listener.item_projector" />
+            <tag name="doctrine.event_listener" event="postFlush" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\AssociationTypeSavedListener">
+            <argument type="service" id="sylake_akeneo_producer.listener.item_set" />
+            <tag name="doctrine.event_listener" event="postPersist" />
+            <tag name="doctrine.event_listener" event="postUpdate" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\AttributeSavedListener">
+            <argument type="service" id="sylake_akeneo_producer.listener.item_set" />
+            <tag name="kernel.event_listener" event="akeneo.storage.post_save" method="__invoke" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\CategorySavedListener">
+            <argument type="service" id="sylake_akeneo_producer.listener.item_set" />
+            <tag name="doctrine.event_listener" event="postPersist" />
+            <tag name="doctrine.event_listener" event="postUpdate" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Listener\ProductSavedListener">
+            <argument type="service" id="sylake_akeneo_producer.listener.item_set" />
+            <tag name="kernel.event_listener" event="akeneo.storage.post_save" method="__invoke" />
+        </service>
+    </services>
+</container>

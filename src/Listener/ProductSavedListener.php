@@ -7,12 +7,12 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class ProductSavedListener
 {
-    /** @var ItemProjectorInterface */
-    private $productProjector;
+    /** @var ItemSetInterface */
+    private $itemSet;
 
-    public function __construct(ItemProjectorInterface $productProjector)
+    public function __construct(ItemSetInterface $itemSet)
     {
-        $this->productProjector = $productProjector;
+        $this->itemSet = $itemSet;
     }
 
     public function __invoke(GenericEvent $event)
@@ -23,6 +23,6 @@ final class ProductSavedListener
             return;
         }
 
-        $this->productProjector->__invoke($product);
+        $this->itemSet->add($product);
     }
 }
