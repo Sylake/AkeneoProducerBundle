@@ -42,6 +42,6 @@ final class ItemProjector implements ItemProjectorInterface
            $this->processor->setStepExecution($stepExecution);
        }
 
-       $this->writer->write([$this->processor->process(clone $item)]);
+       $this->writer->write([$this->processor->process($item)]);
     }
 }
