@@ -22,7 +22,7 @@ class MessageEvent extends Event
      * @param string $type
      * @param mixed $payload
      */
-    public function __construct(string $type, $payload)
+    public function __construct($type, $payload)
     {
         $this->type = $type;
         $this->payload = $payload;
@@ -31,7 +31,7 @@ class MessageEvent extends Event
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
