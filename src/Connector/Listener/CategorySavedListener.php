@@ -1,18 +1,19 @@
 <?php
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use Akeneo\Component\Classification\Model\CategoryInterface;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class CategorySavedListener
 {
-    /** @var ItemProjectorInterface */
-    private $categoryProjector;
+    /** @var ItemSetInterface */
+    private $itemSet;
 
-    public function __construct(ItemProjectorInterface $categoryProjector)
+    public function __construct(ItemSetInterface $itemSet)
     {
-        $this->categoryProjector = $categoryProjector;
+        $this->itemSet = $itemSet;
     }
 
     public function postPersist(LifecycleEventArgs $event)
@@ -33,6 +34,6 @@ final class CategorySavedListener
             return;
         }
 
-        $this->categoryProjector->__invoke($category);
+        $this->itemSet->add($category);
     }
 }

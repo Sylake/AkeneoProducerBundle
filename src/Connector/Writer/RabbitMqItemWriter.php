@@ -5,7 +5,7 @@ namespace Sylake\AkeneoProducerBundle\Connector\Writer;
 use Akeneo\Component\Batch\Item\ItemWriterInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
 
-final class RabbitMqProducer implements ItemWriterInterface
+final class RabbitMqItemWriter implements ItemWriterInterface
 {
     /**
      * @var ProducerInterface

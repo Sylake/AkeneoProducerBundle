@@ -1,18 +1,19 @@
 <?php
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Pim\Component\Catalog\Model\AssociationTypeInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class AssociationTypeSavedListener
 {
-    /** @var ItemProjectorInterface */
-    private $associationTypeProjector;
+    /** @var ItemSetInterface */
+    private $itemSet;
 
-    public function __construct(ItemProjectorInterface $associationTypeProjector)
+    public function __construct(ItemSetInterface $itemSet)
     {
-        $this->associationTypeProjector = $associationTypeProjector;
+        $this->itemSet = $itemSet;
     }
 
     public function postPersist(LifecycleEventArgs $event)
@@ -33,6 +34,6 @@ final class AssociationTypeSavedListener
             return;
         }
 
-        $this->associationTypeProjector->__invoke($associationType);
+        $this->itemSet->add($associationType);
     }
 }

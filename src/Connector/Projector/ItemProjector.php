@@ -1,6 +1,6 @@
 <?php
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Projector;
 
 use Akeneo\Component\Batch\Item\ItemProcessorInterface;
 use Akeneo\Component\Batch\Item\ItemWriterInterface;
@@ -42,6 +42,6 @@ final class ItemProjector implements ItemProjectorInterface
            $this->processor->setStepExecution($stepExecution);
        }
 
-       $this->writer->write([$this->processor->process(clone $item)]);
+       $this->writer->write([$this->processor->process($item)]);
     }
 }
