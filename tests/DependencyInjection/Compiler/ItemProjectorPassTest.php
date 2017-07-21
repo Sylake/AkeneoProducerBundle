@@ -38,4 +38,20 @@ final class ItemProjectorPassTest extends AbstractCompilerPassTestCase
             [\Traversable::class, new Reference('acme.item_projector')]
         );
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     *
+     * @test
+     */
+    public function it_throws_an_exception_if_tagged_service_does_not_have_the_required_parameters()
+    {
+        $this->setDefinition('sylake_akeneo_producer.connector.item_projector', new Definition());
+        $this->setDefinition(
+            'acme.item_projector',
+            (new Definition())->addTag('sylake_akeneo_producer.connector.item_projector')
+        );
+
+        $this->compile();
+    }
 }

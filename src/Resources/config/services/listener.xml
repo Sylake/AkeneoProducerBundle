@@ -5,44 +5,46 @@
                  class="Sylake\AkeneoProducerBundle\Connector\ItemSet" public="false" />
 
         <service id="sylake_akeneo_producer.connector.item_projector"
-                 class="Sylake\AkeneoProducerBundle\Connector\Projector\CompositeItemProjector" lazy="true" public="false">
-            <argument type="collection">
-                <argument key="\Pim\Component\Catalog\Model\AssociationTypeInterface" type="service">
-                    <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
-                        <argument type="service" id="pim_connector.processor.normalization.association_type" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
-                    </service>
-                </argument>
-                <argument key="\Pim\Component\Catalog\Model\AttributeInterface" type="service">
-                    <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
-                        <argument type="service" id="pim_connector.processor.normalization.attribute" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
-                    </service>
-                </argument>
-                <argument key="\Pim\Component\Catalog\Model\AttributeOptionInterface" type="service">
-                    <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
-                        <argument type="service" id="pim_connector.processor.normalization.attribute_option" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute_option" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
-                    </service>
-                </argument>
-                <argument key="\Akeneo\Component\Classification\Model\CategoryInterface" type="service">
-                    <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
-                        <argument type="service" id="pim_connector.processor.normalization.category" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
-                    </service>
-                </argument>
-                <argument key="\Pim\Component\Catalog\Model\ProductInterface" type="service">
-                    <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
-                        <argument type="service" id="pim_connector.processor.normalization.product" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" />
-                        <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
-                    </service>
-                </argument>
-            </argument>
+                 class="Sylake\AkeneoProducerBundle\Connector\Projector\CompositeItemProjector" lazy="true" public="false" />
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
+            <argument type="service" id="pim_connector.processor.normalization.association_type" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.association_type" />
+            <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
+            <tag name="sylake_akeneo_producer.connector.item_projector"
+                 supported-class="\Pim\Component\Catalog\Model\AssociationTypeInterface" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
+            <argument type="service" id="pim_connector.processor.normalization.attribute" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute" />
+            <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
+            <tag name="sylake_akeneo_producer.connector.item_projector"
+                 supported-class="\Pim\Component\Catalog\Model\AttributeInterface" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
+            <argument type="service" id="pim_connector.processor.normalization.attribute_option" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.attribute_option" />
+            <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
+            <tag name="sylake_akeneo_producer.connector.item_projector"
+                 supported-class="\Pim\Component\Catalog\Model\AttributeOptionInterface" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
+            <argument type="service" id="pim_connector.processor.normalization.category" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.category" />
+            <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
+            <tag name="sylake_akeneo_producer.connector.item_projector"
+                 supported-class="\Akeneo\Component\Classification\Model\CategoryInterface" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
+            <argument type="service" id="pim_connector.processor.normalization.product" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" />
+            <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
+            <tag name="sylake_akeneo_producer.connector.item_projector"
+                 supported-class="\Pim\Component\Catalog\Model\ProductInterface" />
         </service>
 
         <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemsProjector">
