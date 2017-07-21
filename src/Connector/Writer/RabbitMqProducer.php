@@ -4,6 +4,8 @@ namespace Sylake\AkeneoProducerBundle\Connector\Writer;
 
 use Akeneo\Component\Batch\Item\ItemWriterInterface;
 use OldSound\RabbitMqBundle\RabbitMq\ProducerInterface;
+use Sylake\AkeneoProducerBundle\Event\MessageEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class RabbitMqProducer implements ItemWriterInterface
 {
@@ -18,13 +20,20 @@ final class RabbitMqProducer implements ItemWriterInterface
     private $messageType;
 
     /**
-     * @param ProducerInterface $producer
-     * @param string $messageType
+     * @var EventDispatcherInterface
      */
-    public function __construct(ProducerInterface $producer, $messageType)
+    private $eventDispatcher;
+
+    /**
+     * @param ProducerInterface        $producer
+     * @param                          $messageType
+     * @param EventDispatcherInterface $eventDispatcher
+     */
+    public function __construct(ProducerInterface $producer, $messageType, EventDispatcherInterface $eventDispatcher)
     {
         $this->producer = $producer;
         $this->messageType = $messageType;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -38,6 +47,11 @@ final class RabbitMqProducer implements ItemWriterInterface
                 'payload' => $item,
                 'recordedOn' => (new \DateTime())->format('Y-m-d H:i:s'),
             ]));
+
+            $this->eventDispatcher->dispatch(
+                MessageEvent::POST_PUBLISH,
+                new MessageEvent($this->messageType, $item)
+            );
         }
     }
 }
