@@ -1,9 +1,10 @@
 <?php
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use Akeneo\Component\Classification\Model\CategoryInterface;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class CategorySavedListener
 {

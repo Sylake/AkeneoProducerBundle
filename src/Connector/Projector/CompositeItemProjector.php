@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Projector;
 
 /* final */ class CompositeItemProjector implements ItemProjectorInterface
 {
@@ -12,11 +10,16 @@ namespace Sylake\AkeneoProducerBundle\Listener;
     /**
      * @param array|ItemProjectorInterface[] $itemProjectors Supported class / interface => item projector
      */
-    public function __construct(array $itemProjectors)
+    public function __construct(array $itemProjectors = [])
     {
         foreach ($itemProjectors as $supportedClass => $itemProjector) {
             $this->addItemProjector($supportedClass, $itemProjector);
         }
+    }
+
+    public function addItemProjector($supportedClass, ItemProjectorInterface $itemProjector)
+    {
+        $this->itemProjectors[$supportedClass] = $itemProjector;
     }
 
     /** {@inheritdoc} */
@@ -34,10 +37,5 @@ namespace Sylake\AkeneoProducerBundle\Listener;
         }
 
         throw new \DomainException(sprintf('Could not find item projector for "%s"!', get_class($item)));
-    }
-
-    private function addItemProjector($supportedClass, ItemProjectorInterface $itemProjector)
-    {
-        $this->itemProjectors[$supportedClass] = $itemProjector;
     }
 }

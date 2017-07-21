@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Sylake\AkeneoProducerBundle\Listener;
+namespace spec\Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use PhpSpec\ObjectBehavior;
 use Pim\Component\Catalog\Model\AttributeInterface;
 use Pim\Component\Catalog\Model\AttributeOptionInterface;
 use Prophecy\Argument;
-use Sylake\AkeneoProducerBundle\Listener\ItemSetInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class AttributeSavedListenerSpec extends ObjectBehavior

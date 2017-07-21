@@ -1,9 +1,10 @@
 <?php
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Pim\Component\Catalog\Model\AssociationTypeInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class AssociationTypeSavedListener
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Sylake\AkeneoProducerBundle\Listener;
+namespace spec\Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use PhpSpec\ObjectBehavior;
 use Pim\Component\Catalog\Model\ProductInterface;
 use Prophecy\Argument;
-use Sylake\AkeneoProducerBundle\Listener\ItemSetInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class ProductSavedListenerSpec extends ObjectBehavior

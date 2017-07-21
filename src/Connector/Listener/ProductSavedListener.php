@@ -1,8 +1,9 @@
 <?php
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+namespace Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use Pim\Component\Catalog\Model\ProductInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class ProductSavedListener

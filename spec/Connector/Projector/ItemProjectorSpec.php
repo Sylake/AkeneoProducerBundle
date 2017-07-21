@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Sylake\AkeneoProducerBundle\Listener;
+namespace spec\Sylake\AkeneoProducerBundle\Connector\Projector;
 
 use Akeneo\Component\Batch\Item\ItemProcessorInterface;
 use Akeneo\Component\Batch\Item\ItemWriterInterface;

@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Sylake\AkeneoProducerBundle\Listener;
+namespace spec\Sylake\AkeneoProducerBundle\Connector\Listener;
 
 use Akeneo\Component\Classification\Model\CategoryInterface;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Doctrine\Common\Persistence\ObjectManager;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Sylake\AkeneoProducerBundle\Listener\ItemSetInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class CategorySavedListenerSpec extends ObjectBehavior
 {

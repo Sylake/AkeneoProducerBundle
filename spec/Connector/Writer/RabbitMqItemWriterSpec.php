@@ -8,7 +8,7 @@ use Prophecy\Argument;
 use Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqProduct;
 use PhpSpec\ObjectBehavior;
 
-final class RabbitMqProducerSpec extends ObjectBehavior
+final class RabbitMqItemWriterSpec extends ObjectBehavior
 {
     function let(ProducerInterface $producer)
     {

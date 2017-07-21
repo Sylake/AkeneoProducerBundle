@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Sylake\AkeneoProducerBundle\Listener;
+namespace spec\Sylake\AkeneoProducerBundle\Connector;
 
 use PhpSpec\ObjectBehavior;
-use Sylake\AkeneoProducerBundle\Listener\ItemSetInterface;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class ItemSetSpec extends ObjectBehavior
 {

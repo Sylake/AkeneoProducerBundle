@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Sylake\AkeneoProducerBundle\Listener;
+namespace spec\Sylake\AkeneoProducerBundle\Connector\Projector;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Sylake\AkeneoProducerBundle\Listener\ItemProjectorInterface;
+use Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjectorInterface;
 
 final class CompositeItemProjectorSpec extends ObjectBehavior
 {

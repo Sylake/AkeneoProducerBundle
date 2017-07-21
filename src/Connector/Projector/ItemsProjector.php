@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
+namespace Sylake\AkeneoProducerBundle\Connector\Projector;
 
-namespace Sylake\AkeneoProducerBundle\Listener;
+use Sylake\AkeneoProducerBundle\Connector\ItemSetInterface;
 
 final class ItemsProjector
 {
