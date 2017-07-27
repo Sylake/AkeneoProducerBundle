@@ -51,7 +51,7 @@
             <argument type="service" id="sylake_akeneo_producer.connector.item_set" />
             <argument type="service" id="sylake_akeneo_producer.connector.item_projector" />
             <tag name="doctrine.event_listener" event="postFlush" />
-            <tag name="kernel.event_listener" event="akeneo.storage.post_save" method="__invoke" priority="-1024" />
+            <tag name="kernel.event_listener" event="akeneo.storage.post_save" method="__invoke" priority="1024" />
         </service>
 
         <service class="Sylake\AkeneoProducerBundle\Connector\Listener\AssociationTypeSavedListener">
