@@ -48,6 +48,14 @@
         </service>
 
         <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
+            <argument type="service" id="pim_connector.processor.normalization.group" />
+            <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.group" />
+            <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
+            <tag name="sylake_akeneo_producer.connector.item_projector"
+                 supported-class="\Pim\Component\Catalog\Model\GroupInterface" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Projector\ItemProjector">
             <argument type="service" id="pim_connector.processor.normalization.product" />
             <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.product" />
             <argument type="service" id="sylake_akeneo_producer.connector.job_parameters" />
@@ -80,6 +88,12 @@
         </service>
 
         <service class="Sylake\AkeneoProducerBundle\Connector\Listener\FamilySavedListener">
+            <argument type="service" id="sylake_akeneo_producer.connector.item_set" />
+            <tag name="doctrine.event_listener" event="postPersist" />
+            <tag name="doctrine.event_listener" event="postUpdate" />
+        </service>
+
+        <service class="Sylake\AkeneoProducerBundle\Connector\Listener\GroupSavedListener">
             <argument type="service" id="sylake_akeneo_producer.connector.item_set" />
             <tag name="doctrine.event_listener" event="postPersist" />
             <tag name="doctrine.event_listener" event="postUpdate" />
