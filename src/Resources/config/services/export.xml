@@ -48,6 +48,26 @@
                 </argument>
                 <argument type="service">
                     <service class="%pim_connector.step.item_step.class%">
+                        <argument>publish_family_step</argument>
+                        <argument type="service" id="event_dispatcher" />
+                        <argument type="service" id="akeneo_batch.job_repository" />
+                        <argument type="service" id="pim_connector.reader.database.family" />
+                        <argument type="service" id="pim_connector.processor.normalization.family" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.family" />
+                    </service>
+                </argument>
+                <argument type="service">
+                    <service class="%pim_connector.step.item_step.class%">
+                        <argument>publish_group_step</argument>
+                        <argument type="service" id="event_dispatcher" />
+                        <argument type="service" id="akeneo_batch.job_repository" />
+                        <argument type="service" id="pim_connector.reader.database.group" />
+                        <argument type="service" id="pim_connector.processor.normalization.group" />
+                        <argument type="service" id="sylake_akeneo_producer.connector.writer.rabbit_mq.group" />
+                    </service>
+                </argument>
+                <argument type="service">
+                    <service class="%pim_connector.step.item_step.class%">
                         <argument>publish_product_step</argument>
                         <argument type="service" id="event_dispatcher" />
                         <argument type="service" id="akeneo_batch.job_repository" />
@@ -107,6 +127,18 @@
                  class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqItemWriter" public="false">
             <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
             <argument type="string">akeneo_category_updated</argument>
+        </service>
+
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.family"
+                 class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqItemWriter" public="false">
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
+            <argument type="string">akeneo_family_updated</argument>
+        </service>
+
+        <service id="sylake_akeneo_producer.connector.writer.rabbit_mq.group"
+                 class="Sylake\AkeneoProducerBundle\Connector\Writer\RabbitMqItemWriter" public="false">
+            <argument type="service" id="old_sound_rabbit_mq.sylake_producer" />
+            <argument type="string">akeneo_group_updated</argument>
         </service>
     </services>
 </container>
