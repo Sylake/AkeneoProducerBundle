@@ -1,0 +1,119 @@
+imports:
+    - { resource: "../../../../vendor/akeneo/pim-community-dev/app/config/pim_parameters.yml" }
+    - { resource: parameters.yml }
+    - { resource: "../../../../vendor/akeneo/pim-community-dev/app/config/security.yml" }
+    - { resource: "@PimEnrichBundle/Resources/config/pim.yml" }
+
+parameters:
+    doctrine_migrations_dir: '%kernel.root_dir%/../../../vendor/akeneo/pim-community-dev/upgrades/schema'
+
+framework:
+    #esi:             ~
+    translator:      { fallback: en }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
+    form:            true
+    csrf_protection: true
+    validation:
+        enable_annotations: true
+        enabled: true
+        api: 2.5
+    templating:      { engines: ['twig', 'php'] } #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:
+        name:                 BAPID
+        handler_id:           session.handler.pdo
+        gc_maxlifetime:       3600
+    fragments:
+        enabled:              true
+        path:                 /_fragment # used for controller action in template
+    serializer:
+        enabled:              true
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        uservoice_key: %uservoice_key%
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    filters:
+        cssrewrite: ~
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver: "pdo_sqlite"
+                path: "%kernel.cache_dir%/db.sql"
+                charset: UTF8
+            session:
+                driver: "pdo_sqlite"
+                path: "%kernel.cache_dir%/db_session.sql"
+                charset: UTF8
+        types:
+            datetime: Akeneo\Bundle\StorageUtilsBundle\Doctrine\DBAL\Types\UTCDateTimeType
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+        mappings:
+            tree:
+                type: annotation
+                alias: Gedmo
+                prefix: Gedmo\Tree\Entity
+                dir: '%kernel.root_dir%/../../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity'
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport:                "%mailer_transport%"
+    host:                     "%mailer_host%"
+    username:                 "%mailer_user%"
+    password:                 "%mailer_password%"
+    spool:                    { type: memory }
+
+# FOSOAuthServer Configuration
+fos_oauth_server:
+    db_driver:                orm
+    client_class:             Pim\Bundle\ApiBundle\Entity\Client
+    access_token_class:       Pim\Bundle\ApiBundle\Entity\AccessToken
+    refresh_token_class:      Pim\Bundle\ApiBundle\Entity\RefreshToken
+    auth_code_class:          Pim\Bundle\ApiBundle\Entity\AuthCode
+    service:
+        user_provider:        pim_user.provider.user
+
+pim_reference_data:
+    fabrics:
+        class: Acme\Bundle\AppBundle\Entity\Fabric
+        type: multi
+    color:
+        class: Acme\Bundle\AppBundle\Entity\Color
+        type: simple
+
+akeneo_storage_utils:
+    mapping_overrides:
+        -
+            original: Pim\Component\Catalog\Model\ProductValue
+            override: Acme\Bundle\AppBundle\Model\ProductValue
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host: 'localhost'
+            port: 5672
+            user: 'guest'
+            password: 'guest'
+
+sylake_akeneo_producer:
+    locales:
+        - 'en_GB'
+        - 'de_DE'
