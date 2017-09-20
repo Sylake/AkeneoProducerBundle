@@ -58,3 +58,9 @@ Usage
 $ app/console akeneo:batch:create-job "Sylake - Akeneo Producer" sylake_akeneo_producer export sylake_akeneo_producer
 $ app/console akeneo:batch:job sylake_akeneo_producer
 ```
+
+You can also export just one product by its SKU by running:
+
+```bash
+$ app/console sylake:producer:export-product PRODUCT_SKU
+```
