@@ -1,4 +1,4 @@
-# This Akeneo producer bundle is deprecated & supports Akeneo 1.7 only.
+# This Akeneo producer bundle is deprecated & supports Akeneo 1.7 only
 
 AkeneoProducerBundle
 ====================
